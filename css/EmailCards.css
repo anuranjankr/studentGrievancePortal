@@ -55,7 +55,11 @@ a {
   content: "\02716"; /* Unicode character for "plus" sign (+) */
   font-size: 15px;
 }
-#section{
-  height: 500px;
-  width:auto;
+  #section{
+    position:relative;
+    margin:10px;
+    background-color: rgba(0,0,0,0.4);
+    overflow:hidden;
+    height:200px;
+    width:500px;
 }
