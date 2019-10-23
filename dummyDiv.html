@@ -1,0 +1,16 @@
+<html>
+<head>
+<link rel = "stylesheet" href ="css/EmailCards.css">
+<script src="js/3.4.1-jquery.min.js"></script>
+</head>
+<body>
+  <div id="section"></div>
+    <script>
+         $(document).ready(function() {
+           $.ajax({url:"C:\Users\prita\github\studentGrievancePortal\EmailCards.html",success:function(result){
+              $("#section").html(result);
+            }});
+         });
+     </script>
+  </body>
+</html>

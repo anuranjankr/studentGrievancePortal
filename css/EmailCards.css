@@ -55,3 +55,7 @@ a {
   content: "\02716"; /* Unicode character for "plus" sign (+) */
   font-size: 15px;
 }
+#section{
+  height: 500px;
+  width:auto;
+}
