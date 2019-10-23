@@ -73,6 +73,9 @@ a:hover {
   border-radius: 50%;
   color:rgba(0,0,0,0.60);
   font-weight: bolder;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  margin-right: 3px;
 }
 #go-back:hover{
   color:rgba(0,0,0,0.40);
