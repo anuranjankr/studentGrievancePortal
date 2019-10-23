@@ -24,7 +24,27 @@
    -webkit-flex: 1;
    -ms-flex: 1;
    flex: 1;
+   overflow: auto;
    padding: 15px;
+}
+
+.column.side a {
+  display: block;
+  border-radius: 4px;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+
+.column.side a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.column.side a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
 /* Middle column */
@@ -56,7 +76,7 @@
   overflow: hidden;
   margin: 25px;
   width:auto;
-  height:30px;
+  height:35px;
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -66,3 +86,19 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .column.side {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .column.side a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .column.side a {
+    text-align: center;
+    float: none;
+  }
