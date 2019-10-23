@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the footer */
+/* Container for flexboxes */
+.row {
+  display: -webkit-flex;
+  display: flex;
+  min-height: 75vh;
+  max-width:100%;
+  margin:0px auto;
+}
+
+/* Create three unequal columns that sits next to each other */
+.column {
+  height:inherit;
+ /* Should be removed. Only for demonstration */
+}
+
+/* Left and right column */
+.column.side {
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   padding: 15px;
+}
+
+/* Middle column */
+.column.middle {
+  -webkit-flex: 3.3;
+  -ms-flex: 3.3;
+  flex: 3.3;
+}
+.column.middle.content {
+  background-color: #f1f1f1;
+  padding: 50px;
+  height: 100%; /* Should be removed. Only for demonstration */
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:30px;
+  text-align: center;
+}
+.tab {
+  position: relative;
+  background-color: #f1f1f1;
+  overflow: hidden;
+  margin: 25px;
+  width:auto;
+  height:30px;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
