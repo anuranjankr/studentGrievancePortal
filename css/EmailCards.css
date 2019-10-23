@@ -1,7 +1,9 @@
 #myCard{
+  z-index:-10;
   margin : 2px;
   border-radius: 5px;
   border:10px rgba(0,0,0,0.40);
+  background-color: rbga(255,255,255,.40);
   border-left:20px rgba(0,0,0,0.7);
   box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
   -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
@@ -9,6 +11,7 @@
   transition: 0.3s;
 }
 #myCard:hover{
+  background-color: rbga(255,220,255,.40);
   -webkit-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.40);
   -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.40);
   box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.40);
@@ -35,6 +38,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 #closed{
   float:right;
   border:none;
@@ -53,10 +60,37 @@ a {
   content: "\02716"; /* Unicode character for "plus" sign (+) */
   font-size: 15px;
 }
-.section{
+#EmailList{
       margin: 0 auto;
-      width:600px;
+      width:inherit;
+      height:500px;
       overflow:scroll;
-      height:100%;
-      background-color: rgba(0,0,0,0.4);
+}
+#go-back{
+  float:left;
+  border:none;
+  background:none;
+  border-radius: 50%;
+  color:rgba(0,0,0,0.60);
+  font-weight: bolder;
+}
+#go-back:hover{
+  color:rgba(0,0,0,0.40);
+  outline:none;
+}
+#go-back:active{
+  color:rgba(0,0,0,0.60);
+  outline:none;
+}
+#go-back:after{
+  content: "\02190"; /* Unicode character for "plus" sign (+) */
+  font-size: 15px;
+}
+.Admin{
+  background-color:rgba(255,255,255,0.8);
+  border-radius:5px;
+  padding:inherit;
+  font-size: 15px;
+  font-family: sans-serif ,arial, helvetica;
+  font-weight: bold;
 }
