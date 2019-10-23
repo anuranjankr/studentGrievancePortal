@@ -4,13 +4,11 @@
 <script src="js/3.4.1-jquery.min.js"></script>
 </head>
 <body>
-  <div>
-  <div id="section"></div>
-</div>
+  <div class="section"></div>
     <script>
          $(document).ready(function() {
            $.ajax({url:"http://localhost/github/studentGrievancePortal/EmailCards.html",success:function(result){
-              $("#section").html(result);
+              $(".section").html(result);
             }});
          });
      </script>
