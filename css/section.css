@@ -8,11 +8,15 @@
 .row {
   display: -webkit-flex;
   display: flex;
+  min-height: 75vh;
+  max-width:100%;
+  margin:0px auto;
 }
 
 /* Create three unequal columns that sits next to each other */
 .column {
-  height: 300px; /* Should be removed. Only for demonstration */
+  height:inherit;
+ /* Should be removed. Only for demonstration */
 }
 
 /* Left and right column */
@@ -25,9 +29,9 @@
 
 /* Middle column */
 .column.middle {
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
+  -webkit-flex: 3.3;
+  -ms-flex: 3.3;
+  flex: 3.3;
 }
 .column.middle.content {
   background-color: #f1f1f1;
@@ -39,14 +43,18 @@
 .footer {
   background-color: #f1f1f1;
   padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:30px;
   text-align: center;
 }
 .tab {
   position: relative;
   background-color: #f1f1f1;
   overflow: hidden;
-  margin: 10px;
-  margin-right:35px;
+  margin: 25px;
   width:auto;
   height:30px;
 }
