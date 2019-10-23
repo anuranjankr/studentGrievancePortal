@@ -4,13 +4,19 @@
 <script src="js/3.4.1-jquery.min.js"></script>
 </head>
 <body>
-  <div class="section"></div>
-    <script>
-         $(document).ready(function() {
-           $.ajax({url:"http://localhost/github/studentGrievancePortal/EmailCards.html",success:function(result){
-              $(".section").html(result);
-            }});
-         });
-     </script>
+  <div class="section">
+    <div class="section2">
+  <script>
+         /*$.ajax({url:"http://localhost/github/studentGrievancePortal/EmailCards.html",success:function(result){
+            $(document).ready(function() {
+            $(".section").html(result);
+          }});
+       });*/
+       $(document).ready(function() {
+              $(".section2").load("http://localhost/github/studentGrievancePortal/EmailCards.html #card-creater");
+       });
+   </script>
+       </div>
+     </div>
   </body>
 </html>

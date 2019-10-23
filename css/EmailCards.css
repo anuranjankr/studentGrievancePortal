@@ -1,6 +1,6 @@
 #myCard{
-  width:auto;
-  height:40px;
+  width:inherit;
+  height:inherit;
   margin : 2px;
   border-radius: 5px;
   border:10px rgba(0,0,0,0.40);
@@ -55,7 +55,7 @@ a {
   content: "\02716"; /* Unicode character for "plus" sign (+) */
   font-size: 15px;
 }
-  .section{
+.section{
       margin: 0 auto;
       width:600px;
       overflow:scroll;
