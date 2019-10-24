@@ -28,7 +28,7 @@
    padding: 15px;
 }
 
-.column.side a {
+.column.side div {
   display: block;
   border-radius: 4px;
   color: black;
@@ -37,12 +37,12 @@
 }
 
 
-.column.side a.active {
+.column.side div.active {
   background-color: #4CAF50;
   color: white;
 }
 
-.column.side a:hover:not(.active) {
+.column.side div:hover:not(.active) {
   background-color: #555;
   color: white;
 }
@@ -70,6 +70,10 @@
   height:30px;
   text-align: center;
 }
+#submit-form{
+  visibility: hidden;
+}
+
 .tab {
   position: relative;
   background-color: #f1f1f1;

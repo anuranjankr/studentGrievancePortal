@@ -61,9 +61,10 @@ a:hover {
   font-size: 15px;
 }
 #EmailList{
-      margin: 0 auto;
+      visibility: visible;
       width:inherit;
       height:500px;
+      margin: 0;
       overflow:scroll;
 }
 #go-back{
@@ -96,4 +97,7 @@ a:hover {
   font-size: 15px;
   font-family: sans-serif ,arial, helvetica;
   font-weight: bold;
+}
+#hrefing{
+  z-index:-20;
 }

@@ -13,7 +13,7 @@
     var i;
     $(document).ready(function() {
   for(i = 1; i <= pageLimit; i++) {
-        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-header"><div class="card-content"><span class="card-hyperlink'+i+'"><input type="checkbox" id="Checkbox" /><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div></div>');
+        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-header"><div class="card-content"><span class="card-hyperlink'+i+'" id="hrefing"><input type="checkbox" id="Checkbox" /><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div></div>');
       }
       var passNoDelete = -1;
       for(i=1;i<=pageLimit;i++)
