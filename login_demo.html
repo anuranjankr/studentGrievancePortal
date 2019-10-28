@@ -49,16 +49,16 @@
       <button type="button" class="toggle-btn" onclick="login_usr()">User</button>
       <button type="button" class="toggle-btn" onclick="login_admin()">Admin</button>
     </div>
-    <form id="user" class="input-group">
-    <input type="text" class="input-field" placeholder="User Id" required>
-    <input type="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
+    <form id="user" class="input-group" action="login_user.php" method="post">
+    <input type="text" name="user_id" class="input-field" placeholder="User Id" required>
+    <input type="password" name="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
     <input type="checkbox" class="check-box">Remember password
     <button type="submit" class="submit-btn">Log In</button>
     </form>
 
-    <form id="admin" class="input-group">
-    <input type="text" class="input-field" placeholder="Admin Id" required>
-    <input type="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
+    <form id="admin" class="input-group" action="login_admin.php" method="post">
+    <input type="text" name="admin_id" class="input-field" placeholder="Admin Id" required>
+    <input type="password" name="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
     <input type="checkbox" class="check-box">Remember password
     <button type="submit" class="submit-btn">Log In</button>
     </form>
