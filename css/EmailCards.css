@@ -99,3 +99,60 @@ a:hover {
   font-family: sans-serif ,arial, helvetica;
   font-weight: bold;
 }
+.email-body{
+    color : rbga(0,0,0,0.6) !important;
+}
+.Subject{
+    font-size: 40px;
+    padding:15px;
+    border-bottom: 3px rgba(0, 0, 0, 0.1) solid;
+    background-color: rgba(0, 0, 0, 0.01);
+}
+.Information-Mail{
+    font-size: 25px;
+    padding:15px;
+    border-bottom: 1px #c9c9c9 solid;
+}
+.mail-page{
+    font-size: 15px;
+    padding:15px;
+    width:inherit;
+    height:300px;
+}
+ .approve{
+    background-color: #29a329;
+    color: white;
+    margin-left: 10px;
+    border-radius: 4px;
+    padding:10px 20px 10px 20px;
+    display:inline-block;
+}
+.forward{
+    background-color: #29a329;
+    color: white;
+    border-radius: 4px;
+    padding:10px 20px 10px 20px;
+    margin-left: 20px;
+    display:inline-block;
+}
+.approve:hover{
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  cursor:pointer;
+}
+.forward:hover{
+  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  cursor:pointer;
+}
+.approve-popup{
+    max-width:300px;
+    max-height: 200px;
+    box-shadow: 0px 3px 3px 3px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 3px 3px 3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 3px 3px 3px rgba(0,0,0,0.4);
+}

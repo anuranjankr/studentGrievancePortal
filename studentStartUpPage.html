@@ -174,6 +174,9 @@
     <script>
          $(document).ready(function() {
                 $("#EmailList").load("EmailCards.html");
+                $('.approve').click(function(){
+                    $(".row").append('<div class="approve-popup" style="margin:0 auto; position:fixed;">Please fill remarks:<br><textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea></div>');
+                });
          });
      </script>
   </div>
