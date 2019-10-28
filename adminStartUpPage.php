@@ -100,7 +100,7 @@
   </div>
 
   <!-- Left-aligned links (default) -->
-  <a >User DashBoard</a>
+  <a >Admin DashBoard</a>
 
 
   <!-- Right-aligned links -->
@@ -171,7 +171,6 @@
 
   </form>
     <script>
-      var type = 1;
          $(document).ready(function() {
                 $("#EmailList").load("EmailCards.html");
                   $('.back').click(function(){
