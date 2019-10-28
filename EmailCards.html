@@ -43,7 +43,11 @@
       {
         var pass1 = '.'+'card'+i;
         $(pass1).click(function() {
+            if(type == 2)
             $(".EmailList").load("MailRead.html");
+            else {
+              $(".EmailList").load("MailReadStudent.html");
+            }
         });
       }
   });
