@@ -8,18 +8,19 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
-    var pageLimit=50;
+    var pageLimit=2;
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
   for(i = 1; i <= pageLimit; i++) {
-        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-header"><div class="card-content"><span class="card-hyperlink'+i+'" id="hrefing"><input type="checkbox" id="Checkbox" /><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div></div>');
+        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-content"><input type="checkbox" id="Checkbox'+i+'" /><span class="card-hyperlink'+i+'" id="hrefing"><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div>');
       }
       var passNoDelete = -1;
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
-        $(pass1).click(function() {
+        var pass2 = '#'+"Checkbox"+i;
+        $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
             if(confirm("Want to delete?"))
@@ -30,11 +31,17 @@
                   $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
                 }
               }
+              else {
+                e.stopPropagation();
+              }
+        });
+        $(pass2).click(function(e) {
+          e.stopPropagation();
         });
       }
       for(i=1;i<=pageLimit;i++)
       {
-        var pass1 = '.'+'card-hyperlink'+i;
+        var pass1 = '.'+'card'+i;
         $(pass1).click(function() {
             $("#EmailList").load("dummy.html");
         });

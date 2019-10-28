@@ -1,5 +1,14 @@
 <html>
-<body>
-  <h1> <center>THIS IS THE MAIL PAGE</center></h1>
+<body class="email-body">
+  <link rel = "stylesheet" href ="css/EmailCards.css">
+  <script src="js/3.4.1-jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    var subject = "Problem Regarding Water..";
+    var description = "There is a Problem in Water Purifier";
+    $('.email-body').append('<h1> <center>'+subject+'</center></h1>');
+    $('.email-body').append('<div class ="mail-page">'+description+'</div>')
+    });
+  </script>
   </body>
 </html>
