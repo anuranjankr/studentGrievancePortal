@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -130,7 +129,7 @@
   <div class="column middle" style="background-color:#bbb;">
     <div class="tab">
 
-      <label for="category" style="padding-left:6px;">Disable and enable</label>
+      <label for="category" style="padding-left:10px;"><button type= "button" id ="go-back" class="back"></button>Disable and enable</label>
       <div class="search-container">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
@@ -174,13 +173,12 @@
     <script>
          $(document).ready(function() {
                 $("#EmailList").load("EmailCards.html");
-                $('.approve').click(function(){
-                    $(".row").append('<div class="approve-popup" style="margin:0 auto; position:fixed;">Please fill remarks:<br><textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea></div>');
+                  $('.back').click(function(){
+                       $("#EmailList").load("EmailCards.html");
                 });
          });
      </script>
   </div>
-
 
 
 </div>
