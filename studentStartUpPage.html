@@ -30,9 +30,9 @@
               document.getElementById("Compose").className = "not-active";
               document.getElementById("Sent").className = "not-active";
               document.getElementById("submit-form").style.visibility = "hidden";
-              document.getElementById("EmailListSent").style.visibility = "hidden";
-              document.getElementById("EmailListSent").style.width = "0px";
-              document.getElementById("EmailListSent").style.height = "0px";
+              document.getElementById("EmailListSent").style.display = "none";
+              document.getElementById("EmailListSent").style.width = "0";
+              document.getElementById("EmailListSent").style.height = "0";
               document.getElementById("EmailList").style.visibility = "visible";
               document.getElementById("EmailList").style.width = "inherit";
               document.getElementById("EmailList").style.height = "500px";
@@ -44,9 +44,9 @@
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
                     document.getElementById("submit-form").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.width = "0px";
-                    document.getElementById("EmailListSent").style.height = "0px";
+                    document.getElementById("EmailListSent").style.display = "none";
+                    document.getElementById("EmailListSent").style.width = "0";
+                    document.getElementById("EmailListSent").style.height = "0";
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
@@ -59,9 +59,9 @@
                     document.getElementById("EmailList").style.width = "0";
                     document.getElementById("EmailList").style.height = "0";
                     document.getElementById("submit-form").style.visibility = "visible";
-                    document.getElementById("EmailListSent").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.width = "0px";
-                    document.getElementById("EmailListSent").style.height = "0px";
+                    document.getElementById("EmailListSent").style.display = "none";
+                    document.getElementById("EmailListSent").style.width = "0";
+                    document.getElementById("EmailListSent").style.height = "0";
                   }
                   else if(id == 'Sent'){
                     document.getElementById("Compose").className = "not-active";
@@ -71,7 +71,7 @@
                     document.getElementById("EmailList").style.width = "0";
                     document.getElementById("EmailList").style.height = "0";
                     document.getElementById("submit-form").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.visibility = "visible";
+                    document.getElementById("EmailListSent").style.display = "block";
                     document.getElementById("EmailListSent").style.width = "inherit";
                     document.getElementById("EmailListSent").style.height = "500px";
                   }
@@ -85,9 +85,9 @@
               document.getElementById("EmailList").style.width = "0";
               document.getElementById("EmailList").style.height = "0";
               document.getElementById("submit-form").style.visibility = "visible";
-              document.getElementById("EmailListSent").style.visibility = "hidden";
-              document.getElementById("EmailListSent").style.width = "0px";
-              document.getElementById("EmailListSent").style.height = "0px";
+              document.getElementById("EmailListSent").style.display = "none";
+              document.getElementById("EmailListSent").style.width = "0";
+              document.getElementById("EmailListSent").style.height = "0";
               $('.not-active').click(function(){
                 var id = $(this).attr('id');
                 if(id == 'Home'){
@@ -95,9 +95,9 @@
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
                     document.getElementById("submit-form").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.width = "0px";
-                    document.getElementById("EmailListSent").style.height = "0px";
+                    document.getElementById("EmailListSent").style.display = "none";
+                    document.getElementById("EmailListSent").style.width = "0";
+                    document.getElementById("EmailListSent").style.height = "0";
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
@@ -109,9 +109,9 @@
                   document.getElementById("EmailList").style.visibility = "hidden";
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
-                  document.getElementById("EmailListSent").style.visibility = "hidden";
-                  document.getElementById("EmailListSent").style.width = "0px";
-                  document.getElementById("EmailListSent").style.height = "0px";
+                  document.getElementById("EmailListSent").style.display = "none";
+                  document.getElementById("EmailListSent").style.width = "0";
+                  document.getElementById("EmailListSent").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "visible";
                 }
                 else if(id == 'Sent'){
@@ -122,7 +122,7 @@
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "hidden";
-                  document.getElementById("EmailListSent").style.visibility = "visible";
+                  document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
                 }
@@ -136,7 +136,7 @@
               document.getElementById("EmailList").style.width = "0";
               document.getElementById("EmailList").style.height = "0";
               document.getElementById("submit-form").style.visibility = "hidden";
-              document.getElementById("EmailListSent").style.visibility = "visible";
+              document.getElementById("EmailListSent").style.display = "block";
               document.getElementById("EmailListSent").style.width = "inherit";
               document.getElementById("EmailListSent").style.height = "500px";
               $('.not-active').click(function(){
@@ -146,9 +146,9 @@
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
                     document.getElementById("submit-form").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.visibility = "hidden";
-                    document.getElementById("EmailListSent").style.width = "0px";
-                    document.getElementById("EmailListSent").style.height = "0px";
+                    document.getElementById("EmailListSent").style.display = "none";
+                    document.getElementById("EmailListSent").style.width = "0";
+                    document.getElementById("EmailListSent").style.height = "0";
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
@@ -160,9 +160,9 @@
                   document.getElementById("EmailList").style.visibility = "hidden";
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
-                  document.getElementById("EmailListSent").style.visibility = "hidden";
-                  document.getElementById("EmailListSent").style.width = "0px";
-                  document.getElementById("EmailListSent").style.height = "0px";
+                  document.getElementById("EmailListSent").style.display = "none";
+                  document.getElementById("EmailListSent").style.width = "0";
+                  document.getElementById("EmailListSent").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "visible";
                 }
                 else if(id == 'Sent'){
@@ -173,7 +173,7 @@
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "hidden";
-                  document.getElementById("EmailListSent").style.visibility = "visible";
+                  document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
                 }
@@ -275,9 +275,26 @@
     <script>
          $(document).ready(function() {
                 $("#EmailList").load("EmailCardsStudent.html");
-                $(".EmailSent").load("EmailCardsSent.html");
                   $('.back').click(function(){
-                       $("#EmailList").load("EmailCardsStudent.html");
+                      if($(".active").attr('id') == "Home")
+                        $("#EmailList").load("EmailCardsStudent.html");
+                      else if($(".active").attr('id') == "Sent")
+                        $("#EmailListSent").load("EmailCardsSent.html");
+                    /*  else if($(".active").attr('id') == "Compose")
+                        {
+                          document.getElementById("EmailList").style.visibility = "hidden";
+                          document.getElementById("EmailList").style.width = "0";
+                          document.getElementById("EmailList").style.height = "0";
+                          document.getElementById("EmailListSent").style.visibility = "hidden";
+                          document.getElementById("EmailListSent").style.width = "0";
+                          document.getElementById("EmailListSent").style.height = "0";
+                        }*/
+                });
+                $('#Sent').click(function(){
+                    $("#EmailListSent").load("EmailCardsSent.html");
+                });
+                $('#Home').click(function(){
+                    $("#EmailList").load("EmailCardsStudent.html");
                 });
          });
      </script>

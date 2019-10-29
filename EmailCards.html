@@ -8,6 +8,7 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
+    var popup =0;
     var pageLimit=2;
     var emailsLeft = pageLimit;
     var i;
@@ -20,20 +21,39 @@
       {
         var pass1 = '.'+i;
         var pass2 = '#'+"Checkbox"+i;
+        var modal = document.getElementById("myModal");
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
-            if(confirm("Want to delete?"))
-              {
-                $(closePass1).remove();
-                emailsLeft--;
-                if(emailsLeft == 0){
-                  $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
-                }
-              }
-              else {
-                e.stopPropagation();
-              }
+
+            // Get the button that opens the modal
+            //  var btn = document.getElementById("closed");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+              modal.style.display = "block";
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+
+        });
+        $('#approve-reject').click(function(e) {
+
+        var remark = document.getElementById("approveRemark");
+        if(remark != NULL)
+          {
+            $(closePass1).remove();
+            emailsLeft--;
+            if(emailsLeft == 0){
+              $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
+            }
+          }
+          else {
+            e.stopPropagation();
+          }
         });
         $(pass2).click(function(e) {
           e.stopPropagation();
@@ -49,6 +69,17 @@
   });
   </script>
   <div class="EmailList">
+  </div>
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <label for="remark">Reject (Remarks) :</label><br /><br />
+      <textarea id="approveRemark" name="approve-remark" placeholder="Write why it was rejected..." rows="6"></textarea>
+      <div class ="approve" id="approve-reject">Confirm Rejection</div>
+    </div>
+
   </div>
 </body>
 </html>
