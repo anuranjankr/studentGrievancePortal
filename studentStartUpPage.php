@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if(isset($_SESSION['user'])==0){
+      header('location:login_demo.html');
+    }
 ?>
 
 <!doctype html>
