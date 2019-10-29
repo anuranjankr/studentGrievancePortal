@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -204,7 +208,12 @@
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="#logout">Logout</a>
+    <a href="login_demo.html" onclick="logout_user()">Logout</a>
+    <script>
+      function logout_user(){
+        <?php session_destroy(); ?>
+      }
+    </script>
   </div>
 
 </div>
@@ -215,7 +224,7 @@
   <div class="column side" style="background-color:#f1f1f1;">
 
     <div class="container">
-        <label for="usrName" ><h2>Hi There</h2></label>
+        <label for="usrName" ><h2>Hi <?php echo $_SESSION['user'];?></h2></label>
     </div>
     <br>
     <div class="active" id="Home">Inbox</div>

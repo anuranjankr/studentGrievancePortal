@@ -22,10 +22,12 @@ $sql = "select * from user_details where id = '$name' && password ='$pass'";
 $result = $con->query($sql);
 
 if(isset($result->num_rows) && $result->num_rows > 0){
-  header('location:studentStartUpPage.html');
+  $_SESSION['user']=$name;
+  header('location:studentStartUpPage.php');
+  //exit();
 }
 else{
-  header('location:login_demo.html');
+  header('location:login_demo.html' );
 }
 $con->close();
 ?>

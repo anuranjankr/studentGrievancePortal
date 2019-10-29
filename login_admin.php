@@ -23,7 +23,8 @@ $result = $con->query($sql);
 
 
 if(isset($result->num_rows) && $result->num_rows > 0){
-  header('location:adminStartUpPage.html');
+  $_SESSION['user']=$name;
+  header('location:adminStartUpPage.php');
 }
 else{
   header('location:login_demo.html');
