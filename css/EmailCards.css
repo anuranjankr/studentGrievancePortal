@@ -68,6 +68,13 @@ a:hover {
       margin: 0;
       overflow:scroll;
 }
+#EmailListSent{
+      visibility: hidden;
+      width:inherit;
+      height:500px;
+      margin: 0;
+      overflow:scroll;
+}
 #go-back{
   float:left;
   border:none;

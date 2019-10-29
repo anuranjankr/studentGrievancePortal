@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Mail-Page</title>
+<link rel = "stylesheet" href ="css/EmailCards.css">
+<script src="js/3.4.1-jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+  var subject = 'Problem Regarding Water..';
+  var sender = 'Pritam Pal';
+  var description = 'There is a Problem in Water Purifier';
+  $('.email-body').append('<div class="Subject"> '+subject+'</div>');
+  $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
+  $('.email-body').append('<div class ="mail-page">'+description+'</div>');
+  });
+</script>
+</head>
+<body>
+  <div class="email-body">
+  </div>
+  </body>
+</html>
