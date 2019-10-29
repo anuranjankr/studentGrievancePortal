@@ -8,7 +8,7 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
-    var popup =0;
+    var cardNo = 0;
     var pageLimit=2;
     var emailsLeft = pageLimit;
     var i;
@@ -25,6 +25,8 @@
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
+            cardNo = closePass1;
+            e.stopPropagation();
 
             // Get the button that opens the modal
             //  var btn = document.getElementById("closed");
@@ -40,25 +42,28 @@
             }
 
         });
-        $('#approve-reject').click(function(e) {
-
-        var remark = document.getElementById("approveRemark");
-        if(remark != NULL)
-          {
-            $(closePass1).remove();
-            emailsLeft--;
-            if(emailsLeft == 0){
-              $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
-            }
-          }
-          else {
-            e.stopPropagation();
-          }
-        });
         $(pass2).click(function(e) {
           e.stopPropagation();
         });
       }
+
+      $('#approve-reject').click(function(e) {
+      var val = document.getElementById('approveRemark').value;
+    //  document.getElementById('myModal').style.display="none";
+      if(val != 0)
+        {
+          $(cardNo).remove();
+          document.getElementById('myModal').style.display="none";
+          emailsLeft--;
+          if(emailsLeft == 0){
+            $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
+          }
+        }
+        else {
+          e.stopPropagation();
+        }
+      });
+
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+'card'+i;
@@ -77,6 +82,8 @@
       <span class="close">&times;</span>
       <label for="remark">Reject (Remarks) :</label><br /><br />
       <textarea id="approveRemark" name="approve-remark" placeholder="Write why it was rejected..." rows="6"></textarea>
+      <br>
+      <br>
       <div class ="approve" id="approve-reject">Confirm Rejection</div>
     </div>
 

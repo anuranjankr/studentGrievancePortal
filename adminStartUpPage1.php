@@ -18,7 +18,7 @@
 
   <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="css/custom-styles.css">
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/centerNav.css">
   <link rel="stylesheet" href="css/section.css">
   <link rel="stylesheet" href="css/complain.css">
@@ -120,6 +120,7 @@
       }
     </script>
   </div>
+
 </div>
 
 
@@ -145,7 +146,7 @@
       <div class="search-container">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
-          <button type="submit" style="content:&#x1F50D; height :inherit; width: auto;float:right;"></button>
+          <button type="submit"><i class="fa fa-search"></i></button>
         </form>
      </div>
 
