@@ -17,11 +17,11 @@
 <script>
 $("#PDFDownload").click(function () {
 
-  domtoimage.toPng(document.getElementById('PDFcontent'))
+  domtoimage.toPng(document.getElementById('PDFcontentSent'))
         .then(function (blob) {
-            var pdf = new jsPDF('l', 'pt', [$('#PDFcontent').width(), $('#PDFcontent').height()]);
+            var pdf = new jsPDF('l', 'pt', [$('#PDFcontentSent').width(), $('#PDFcontentSent').height()]);
 
-            pdf.addImage(blob, 'PNG', 0, 0, $('#PDFcontent').width(), $('#PDFcontent').height());
+            pdf.addImage(blob, 'PNG', 0, 0, $('#PDFcontentSent').width(), $('#PDFcontentSent').height());
             pdf.save("Complain.pdf");
 
             that.options.api.optionsChanged();
@@ -32,7 +32,7 @@ $("#PDFDownload").click(function () {
 </script>
 </head>
 <body>
-  <div class="email-body" id="PDFcontent">
+  <div class="email-body" id="PDFcontentSent">
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
   <div class ="download" id="PDFDownload">Save As PDF</div>
