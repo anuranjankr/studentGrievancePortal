@@ -1,8 +1,9 @@
 <html>
 <head>
 <title>Mail-Page</title>
-<link rel = "stylesheet" href ="css/EmailCards.css">
 <script src="js/3.4.1-jquery.min.js"></script>
+<script src="js/jsPDF.js"></script>
+<script src="js/dom-to-image.js"></script>
 <script>
   $(document).ready(function() {
   var subject = 'Problem Regarding Water..';
@@ -40,13 +41,31 @@ window.onclick = function(event) {
   }
 }
 </script>
+<script>
+$("#PDFDownload").click(function () {
+
+  domtoimage.toPng(document.getElementById('PDFcontent'))
+        .then(function (blob) {
+            var pdf = new jsPDF('l', 'pt', [$('#PDFcontent').width(), $('#PDFcontent').height()]);
+
+            pdf.addImage(blob, 'PNG', 0, 0, $('#PDFcontent').width(), $('#PDFcontent').height());
+            pdf.save("Complain.pdf");
+
+            that.options.api.optionsChanged();
+        });
+
+});
+
+</script>
 </head>
 <body>
-  <div class="email-body">
+  <div class="email-body" id="PDFcontent">
+    <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
   <div class ="approve" id="myBtn">Approve</div>
   <div class ="forward" id="Method">Forward</div>
-
+  <div class ="download" id="PDFDownload">Save As PDF</div>
+  <div id="editor"></div>
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
