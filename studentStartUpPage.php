@@ -43,6 +43,8 @@
               document.getElementById("EmailList").style.visibility = "visible";
               document.getElementById("EmailList").style.width = "inherit";
               document.getElementById("EmailList").style.height = "500px";
+              document.getElementById("enable").style.display = "none";
+              document.getElementById("disable").style.display = "none";
 
                 $('.not-active').click(function(){
                   var id = $(this).attr('id');
@@ -57,6 +59,8 @@
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
+                    document.getElementById("enable").style.display = "none";
+                    document.getElementById("disable").style.display = "none";
                   }
                   else if(id == 'Compose'){
                     document.getElementById("Compose").className = "active";
@@ -69,6 +73,8 @@
                     document.getElementById("EmailListSent").style.display = "none";
                     document.getElementById("EmailListSent").style.width = "0";
                     document.getElementById("EmailListSent").style.height = "0";
+                    document.getElementById("enable").style.display = "inline-block";
+                    document.getElementById("disable").style.display = "inline-block";
                   }
                   else if(id == 'Sent'){
                     document.getElementById("Compose").className = "not-active";
@@ -81,6 +87,8 @@
                     document.getElementById("EmailListSent").style.display = "block";
                     document.getElementById("EmailListSent").style.width = "inherit";
                     document.getElementById("EmailListSent").style.height = "500px";
+                    document.getElementById("enable").style.display = "none";
+                    document.getElementById("disable").style.display = "none";
                   }
                 });
             }
@@ -95,6 +103,8 @@
               document.getElementById("EmailListSent").style.display = "none";
               document.getElementById("EmailListSent").style.width = "0";
               document.getElementById("EmailListSent").style.height = "0";
+              document.getElementById("enable").style.display = "inline-block";
+              document.getElementById("disable").style.display = "inline-block";
               $('.not-active').click(function(){
                 var id = $(this).attr('id');
                 if(id == 'Home'){
@@ -108,6 +118,8 @@
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
+                    document.getElementById("enable").style.display = "none";
+                    document.getElementById("disable").style.display = "none";
                 }
                 else if(id == 'Compose'){
                   document.getElementById("Compose").className = "active";
@@ -120,6 +132,8 @@
                   document.getElementById("EmailListSent").style.width = "0";
                   document.getElementById("EmailListSent").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "visible";
+                  document.getElementById("enable").style.display = "inline-block";
+                  document.getElementById("disable").style.display = "inline-block";
                 }
                 else if(id == 'Sent'){
                   document.getElementById("Compose").className = "not-active";
@@ -132,6 +146,8 @@
                   document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
+                  document.getElementById("enable").style.display = "none";
+                  document.getElementById("disable").style.display = "none";
                 }
               });
             }
@@ -146,6 +162,8 @@
               document.getElementById("EmailListSent").style.display = "block";
               document.getElementById("EmailListSent").style.width = "inherit";
               document.getElementById("EmailListSent").style.height = "500px";
+              document.getElementById("enable").style.display = "none";
+              document.getElementById("disable").style.display = "none";
               $('.not-active').click(function(){
                 var id = $(this).attr('id');
                 if(id == 'Home'){
@@ -159,6 +177,8 @@
                     document.getElementById("EmailList").style.visibility = "visible";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
+                    document.getElementById("enable").style.display = "none";
+                    document.getElementById("disable").style.display = "none";
                 }
                 else if(id == 'Compose'){
                   document.getElementById("Compose").className = "active";
@@ -171,6 +191,8 @@
                   document.getElementById("EmailListSent").style.width = "0";
                   document.getElementById("EmailListSent").style.height = "0";
                   document.getElementById("submit-form").style.visibility = "visible";
+                  document.getElementById("enable").style.display = "inline-block";
+                  document.getElementById("disable").style.display = "inline-block";
                 }
                 else if(id == 'Sent'){
                   document.getElementById("Compose").className = "not-active";
@@ -183,6 +205,8 @@
                   document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
+                  document.getElementById("enable").style.display = "none";
+                  document.getElementById("disable").style.display = "none";
                 }
               });
             }
@@ -240,8 +264,62 @@
 
   <div class="column middle" style="background-color:#bbb;">
     <div class="tab">
-
-      <label for="category" style="padding-left:10px;"><button type= "button" id ="go-back" class="back"></button>Disable and enable</label>
+      <script>
+          $(document).ready(function(){
+              $('#disable').click(function(){
+                  var name = $(this).attr('class');
+                  if(name == "Complain")
+                  {
+                    document.getElementsByClassName("Complain")[0].id = "enable";
+                    document.getElementsByClassName("Suggestion")[0].id = "disable";
+                    document.getElementById("submit-form").style.display="block";
+                    document.getElementById("suggestion-form").style.display="none";
+                    $('#disable').click(function(){
+                        var name = $(this).attr('class');
+                        if(name == "Complain")
+                        {
+                          document.getElementsByClassName("Complain")[0].id = "enable";
+                          document.getElementsByClassName("Suggestion")[0].id = "disable";
+                          document.getElementById("submit-form").style.display="block";
+                          document.getElementById("suggestion-form").style.display="none";
+                        }
+                        else if(name == "Suggestion")
+                        {
+                          document.getElementsByClassName("Complain")[0].id = "disable";
+                          document.getElementsByClassName("Suggestion")[0].id = "enable";
+                          document.getElementById("submit-form").style.display="none";
+                          document.getElementById("suggestion-form").style.display="block";
+                        }
+                    });
+                  }
+                  else if(name == "Suggestion")
+                  {
+                    document.getElementsByClassName("Complain")[0].id = "disable";
+                    document.getElementsByClassName("Suggestion")[0].id = "enable";
+                    document.getElementById("submit-form").style.display="none";
+                    document.getElementById("suggestion-form").style.display="block";
+                    $('#disable').click(function(){
+                        var name = $(this).attr('class');
+                        if(name == "Complain")
+                        {
+                          document.getElementsByClassName("Complain")[0].id = "enable";
+                          document.getElementsByClassName("Suggestion")[0].id = "disable";
+                          document.getElementById("submit-form").style.display="block";
+                          document.getElementById("suggestion-form").style.display="none";
+                        }
+                        else if(name == "Suggestion")
+                        {
+                          document.getElementsByClassName("Complain")[0].id = "disable";
+                          document.getElementsByClassName("Suggestion")[0].id = "enable";
+                          document.getElementById("submit-form").style.display="none";
+                          document.getElementById("suggestion-form").style.display="block";
+                        }
+                    });
+                  }
+              });
+        });
+      </script>
+      <button type= "button" id ="go-back" class="back"></button><div class="Complain" id="enable">Complain</div><div class="Suggestion" id="disable">Suggestion</div>
       <div class="search-container">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
@@ -268,6 +346,7 @@
           <option value="mess">Mess</option>
           <option value="academic">Academic</option>
           <option value="sports">Sports</option>
+          <option value="others">Others</option>
         </select>
 
         <label for="description">Description</label>
@@ -280,9 +359,32 @@
         <label>I hereby declare that the information/document provided above is correct.
            I shall be responsible for furnishing any wrong information/document.</label>
            <br>
-      <input type="submit" value="Submit" style="margin-bottom:10px;">
+      <input type="submit" value="Submit" style="margin-bottom:10px;" id="complain-button">
 
   </form>
+  <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "suggestion-form">
+    <label for="sub">Subject</label>
+    <input type="text" id="subject" name="subject" placeholder="Text Here">
+
+
+    <label for="category">Category</label>
+
+    <select id="category" name="category">
+      <option value="hostel">Hostel</option>
+      <option value="mess">Mess</option>
+      <option value="academic">Academic</option>
+      <option value="sports">Sports</option>
+      <option value="others">Others</option>
+    </select>
+
+    <label for="description">Suggestion</label>
+
+    <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
+    <br><br>
+       <br>
+  <input type="submit" value="Submit" style="margin-bottom:10px;" id="suggestion-button">
+
+</form>
     <script>
          $(document).ready(function() {
                 $("#EmailList").load("EmailCardsStudent.html");
@@ -291,15 +393,6 @@
                         $("#EmailList").load("EmailCardsStudent.html");
                       else if($(".active").attr('id') == "Sent")
                         $("#EmailListSent").load("EmailCardsSent.html");
-                    /*  else if($(".active").attr('id') == "Compose")
-                        {
-                          document.getElementById("EmailList").style.visibility = "hidden";
-                          document.getElementById("EmailList").style.width = "0";
-                          document.getElementById("EmailList").style.height = "0";
-                          document.getElementById("EmailListSent").style.visibility = "hidden";
-                          document.getElementById("EmailListSent").style.width = "0";
-                          document.getElementById("EmailListSent").style.height = "0";
-                        }*/
                 });
                 $('#Sent').click(function(){
                     $("#EmailListSent").load("EmailCardsSent.html");

@@ -34,9 +34,11 @@
             var id = $(this).attr('id');
             if(id == 'Home'){
                 document.getElementById("Home").className = "active";
-                document.getElementById("Compose").className = "not-active";
+                document.getElementById("ComplainComplete").className = "not-active";
+                document.getElementById("EmailList2").style.display= "none";
+                document.getElementById("EmailList2").style.width = "0";
+                document.getElementById("EmailList2").style.height = "0";
                 document.getElementById("EmailList").style.visibility = "visible";
-                document.getElementById("submit-form").style.visibility = "hidden";
                 document.getElementById("EmailList").style.width = "inherit";
                 document.getElementById("EmailList").style.height = "500px";
 
@@ -44,46 +46,56 @@
                   var id = $(this).attr('id');
                   if(id == 'Home'){
                       document.getElementById("Home").className = "active";
-                      document.getElementById("Compose").className = "not-active";
+                      document.getElementById("ComplainComplete").className = "not-active";
+                      document.getElementById("EmailList2").style.display = "none";
+                      document.getElementById("EmailList2").style.width = "0";
+                      document.getElementById("EmailList2").style.height = "0";
                       document.getElementById("EmailList").style.visibility = "visible";
-                      document.getElementById("submit-form").style.visibility = "hidden";
                       document.getElementById("EmailList").style.width = "inherit";
                       document.getElementById("EmailList").style.height = "500px";
                   }
-                  else if(id == 'Compose'){
-                    document.getElementById("Compose").className = "active";
+                  else if(id == 'ComplainComplete'){
+                    document.getElementById("ComplainComplete").className = "active";
                     document.getElementById("Home").className = "not-active";
                     document.getElementById("EmailList").style.visibility = "hidden";
                     document.getElementById("EmailList").style.width = "0";
                     document.getElementById("EmailList").style.height = "0";
-                    document.getElementById("submit-form").style.visibility = "visible";
+                    document.getElementById("EmailList2").style.display = "block";
+                    document.getElementById("EmailList2").style.width = "inherit";
+                    document.getElementById("EmailList2").style.height = "500px";
                   }
                 });
             }
-            else if(id == 'Compose'){
-              document.getElementById("Compose").className = "active";
+            else if(id == 'ComplainComplete'){
+              document.getElementById("ComplainComplete").className = "active";
               document.getElementById("Home").className = "not-active";
               document.getElementById("EmailList").style.visibility = "hidden";
               document.getElementById("EmailList").style.width = "0";
               document.getElementById("EmailList").style.height = "0";
-              document.getElementById("submit-form").style.visibility = "visible";
+              document.getElementById("EmailList2").style.display = "block";
+              document.getElementById("EmailList2").style.width = "inherit";
+              document.getElementById("EmailList2").style.height = "500px";
               $('.not-active').click(function(){
                 var id = $(this).attr('id');
                 if(id == 'Home'){
                     document.getElementById("Home").className = "active";
-                    document.getElementById("Compose").className = "not-active";
+                    document.getElementById("ComplainComplete").className = "not-active";
+                    document.getElementById("EmailList2").style.display = "none";
+                    document.getElementById("EmailList2").style.width = "0";
+                    document.getElementById("EmailList2").style.height = "0";
                     document.getElementById("EmailList").style.visibility = "visible";
-                    document.getElementById("submit-form").style.visibility = "hidden";
                     document.getElementById("EmailList").style.width = "inherit";
                     document.getElementById("EmailList").style.height = "500px";
                 }
-                else if(id == 'Compose'){
-                  document.getElementById("Compose").className = "active";
+                else if(id == 'ComplainComplete'){
+                  document.getElementById("ComplainComplete").className = "active";
                   document.getElementById("Home").className = "not-active";
                   document.getElementById("EmailList").style.visibility = "hidden";
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
-                  document.getElementById("submit-form").style.visibility = "visible";
+                  document.getElementById("EmailList2").style.display = "block";
+                  document.getElementById("EmailList2").style.width = "inherit";
+                  document.getElementById("EmailList2").style.height = "500px";
                 }
               });
             }
@@ -133,7 +145,7 @@
     <br>
     <div class="active" id="Home">Inbox</div>
     <br>
-  <!-- <div class="not-active" id="Compose">Compose Mail</div>-->
+  <div class="not-active" id="ComplainComplete">Complains Completed</div>
 
 
   </div>
@@ -141,7 +153,7 @@
   <div class="column middle" style="background-color:#bbb;">
     <div class="tab">
 
-      <label for="category" style="padding-left:10px;"><button type= "button" id ="go-back" class="back"></button>Disable and enable</label>
+      <button type= "button" id ="go-back" class="back"></button><label for="category" style="padding-left:10px;"></label>
       <div class="search-container">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
@@ -155,43 +167,29 @@
 
     <div class="container">
       <div class="Email" id="EmailList"></div>
-      <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "submit-form">
-        <label for="sub">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Text Here">
-
-
-        <label for="category">Category</label>
-
-        <select id="category" name="category">
-          <option value="hostel">Hostel</option>
-          <option value="mess">Mess</option>
-          <option value="academic">Academic</option>
-          <option value="sports">Sports</option>
-        </select>
-
-        <label for="description">Description</label>
-
-        <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
-
-        <h5><input type="checkbox" name="agree1">&nbsp;Do You want to upload file in your support </h5>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="checkbox" name="agree2">
-        <label>I hereby declare that the information/document provided above is correct.
-           I shall be responsible for furnishing any wrong information/document.</label>
-           <br>
-      <input type="submit" value="Submit" style="margin-bottom:10px;">
-
-  </form>
+      <div class="Email2" id="EmailList2"></div>
     <script>
          $(document).ready(function() {
                 $("#EmailList").load("EmailCards.html");
-                  $('.back').click(function(){
-                       $("#EmailList").load("EmailCards.html");
-                });
+                $('.back').click(function(){
+                    if($(".active").attr('id') == "Home")
+                      $("#EmailList").load("EmailCards.html");
+                    else if($(".active").attr('id') == "ComplainComplete")
+                      $("#EmailList2").load("EmailCardsSent.html");
+              });
          });
      </script>
+     <script>
+          $(document).ready(function() {
+     $('#ComplainComplete').click(function(){
+          $("#EmailList2").load("EmailCardsSent.html");
+        });
+        $('#Home').click(function(){
+            $("#EmailList").load("EmailCards.html");
+        });
+    });
+ </script>
   </div>
-
 
 </div>
 
