@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>IIIT Bhagalpur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="google-site-verification" content="mYwq4kbzhLz2dI8Vg4EGJodW6puVKaFdzln7U-5aH-A" />
+
+
+  <link rel="shortcut icon" href="img/150dpi.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/myStyles.css" />
+  <link rel="stylesheet" href="css/centerNav.css">
+</head>
+
+  <body>
+    <div class="header-box">
+     <div class="college-name">
+        <table><tr><td><a href="index.html"><img src="img/150dpi.png" height=80px></a></td><td><h1>भारतीय सूचना प्रौद्योगिकी संस्थान भागलपुर<br>Indian Institute of Information Technology Bhagalpur</h1></td></tr></table>
+      </div>
+    </div>
+    <!-- Top navigation -->
+    <div class="topnav">
+    <!-- Centered link -->
+    <div class="topnav-centered">
+      <a><h1>Student Grievance Portal</h1></a>
+    </div>
+
+    <!-- Left-aligned links (default) -->
+    <a >Admin DashBoard</a>
+
+
+    <!-- Right-aligned links -->
+    <div class="topnav-right">
+    <!--  <a href="login_demo.html">Logout</a>  -->
+      <a href="login_demo.html" onclick="logout_admin()">Logout</a>
+      <script>
+        function logout_admin(){
+          <?php session_destroy(); ?>
+        }
+      </script>
+    </div>
+    </div>
+
+
+  </body>
+
+
+</html>

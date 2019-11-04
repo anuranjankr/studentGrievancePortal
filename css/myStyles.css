@@ -1,0 +1,60 @@
+/************************************************
+	Font family
+ ************************************************/
+
+/************************************************
+	Global styles starts here
+ ************************************************/
+body{background: #e6e6e6; color: #888888; font-size: 14px; line-height: 24px;}
+h1, h2, h3, h4, h5, h6{margin: 0;}
+
+/************************************************
+	Menu styles starts here
+ ************************************************/
+.header-box {
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+.college-name {
+  display: inline-block;
+}
+.college-name h1 {
+  font-size: 34px;
+  letter-spacing: 2px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #6a7d78;
+}
+
+
+
+/************************************************
+	generic styles starts here
+ ************************************************/
+
+/************************************************
+	sidebar styles starts here
+ ************************************************/
+
+/************************************************
+	Footer styles starts here
+ ************************************************/
+.footer-box {
+  background: #3b3e4a;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:30px;
+  text-align: center;
+}
+
+
+/************************************************
+    Responsive Tweaks starts here
+ ************************************************/
