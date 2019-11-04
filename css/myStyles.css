@@ -44,14 +44,13 @@ h1, h2, h3, h4, h5, h6{margin: 0;}
 	Footer styles starts here
  ************************************************/
 .footer-box {
-  background: #3b3e4a;
-  padding: 10px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width:100%;
-  height:30px;
-  text-align: center;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
 }
 
 
