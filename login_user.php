@@ -16,7 +16,7 @@ mysqli_select_db($con, 'sgp');
 
 $name = $_POST['user_id'];
 $pass = md5($_POST['password']);
-echo $pass;
+//echo $pass;
 $sql = "select * from user_details where id = '$name' && password ='$pass'";
 
 $result = $con->query($sql);

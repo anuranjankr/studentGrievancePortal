@@ -1,3 +1,27 @@
+<?php
+//echo $_SESSION['user'];
+$servername = "localhost";
+$username = "root";//username
+$password = ""; //password
+
+$con = mysqli_connect($servername, $username, $password);
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+else{
+}
+mysqli_select_db($con, 'sgp');
+
+
+$sql = "select complain_number,subject from complaint_box where user_id = '".$_POST['uName']."'; ";
+
+$result = $con->query($sql);
+?>
+
+
+
+
 <html>
 <head>
 <title>
@@ -8,13 +32,13 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
-    var pageLimit=2;
+    var pageLimit="<?php echo $result->num_rows;?>";
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
-  for(i = 1; i <= pageLimit; i++) {
+/*  for(i = 1; i <= pageLimit; i++) {
         $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-content"><input type="checkbox" id="Checkbox'+i+'" /><span class="card-hyperlink'+i+'" id="hrefing"><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div>');
-      }
+      }*/
       var passNoDelete = -1;
       for(i=1;i<=pageLimit;i++)
       {
@@ -43,12 +67,22 @@
       {
         var pass1 = '.'+'card'+i;
         $(pass1).click(function() {
-              $(".EmailList").load("MailReadStudent.html");
+              $(".EmailList").load("MailReadStudentSent.html");
         });
       }
   });
   </script>
   <div class="EmailList">
+    <?php
+    $k = 1;
+      while($row=mysqli_fetch_array($result)){
+      //  echo $row['complain_number']." ";
+      //  echo $row['subject'];
+      //  echo "<br>";
+        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        $k++;
+      }
+    ?>
   </div>
 </body>
 </html>

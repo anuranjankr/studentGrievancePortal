@@ -386,19 +386,20 @@
 
 </form>
     <script>
+         var val = "<?php echo $_SESSION['user'];?>";
          $(document).ready(function() {
-                $("#EmailList").load("EmailCardsStudent.html");
+                $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                   $('.back').click(function(){
                       if($(".active").attr('id') == "Home")
-                        $("#EmailList").load("EmailCardsStudent.html");
+                        $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                       else if($(".active").attr('id') == "Sent")
-                        $("#EmailListSent").load("EmailCardsSent.html");
+                        $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Sent').click(function(){
-                    $("#EmailListSent").load("EmailCardsSent.html");
+                    $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Home').click(function(){
-                    $("#EmailList").load("EmailCardsStudent.html");
+                    $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                 });
          });
      </script>
