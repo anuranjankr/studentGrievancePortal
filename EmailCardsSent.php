@@ -13,14 +13,14 @@ else{
 }
 mysqli_select_db($con, 'sgp');
 
-
+$usrName=$_POST['uName'];
 $sql1 = "select complain_number,subject from complaint_box where user_id = '".$_POST['uName']."' ORDER BY arrival_date DESC; ";
 $result1 = $con->query($sql1);
 
 $sql2 = "select suggestion_number,subject from suggestion_table where user_id = '".$_POST['uName']."' ORDER BY arrival_date DESC ; ";
 $result2 = $con->query($sql2);
 
-
+$numRows= $result1->num_rows + $result2->num_rows;
 ?>
 
 
@@ -36,7 +36,7 @@ $result2 = $con->query($sql2);
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
-    var pageLimit="<?php echo $result->num_rows;?>";
+    var pageLimit="<?php echo $numRows;?>";
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
@@ -56,7 +56,7 @@ $result2 = $con->query($sql2);
                 $(closePass1).remove();
                 emailsLeft--;
                 if(emailsLeft == 0){
-                  $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
+                  $('.EmailList1').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
                 }
               }
               else {
@@ -67,23 +67,40 @@ $result2 = $con->query($sql2);
           e.stopPropagation();
         });
       }
+
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+'card'+i;
         $(pass1).click(function() {
-              $(".EmailList").load("MailReadStudentSent.html");
+          var myClass = $(this).attr("class");
+          var res_id=myClass.substr(4);
+          var pass2 = '.'+'mail-title1'+res_id;
+          var val = parseInt($(pass2).text());
+          var noData=-1;
+          if(i<=<?php echo $result2->num_rows; ?>){
+            alert(i);
+            $(".EmailList1").load("MailReadStudentSent.php", {s_num: val,c_num: noData });
+          }else{
+            $(".EmailList1").load("MailReadStudentSent.php", {c_num: val,s_num: noData });
+          }
         });
       }
   });
   </script>
-  <div class="EmailList">
+  <div class="EmailList1">
     <?php
     $k = 1;
+    while($row=mysqli_fetch_array($result2)){
+    //  echo $row['complain_number']." ";
+    //  echo $row['subject'];
+    //  echo "<br>";
+    echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['suggestion_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+      $k++;
+    }
       while($row=mysqli_fetch_array($result1)){
-      //  echo $row['complain_number']." ";
-      //  echo $row['subject'];
-      //  echo "<br>";
-        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+
+          echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+
         $k++;
       }
     ?>

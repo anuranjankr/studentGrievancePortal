@@ -1,6 +1,7 @@
 <?php
   session_start();
-  if(isset($_SESSION['user'])==0){
+  $usrName=$_SESSION['user'];
+  if(isset($usrName)==0){
       header('location:login_demo.html');
     }
 ?>
@@ -334,9 +335,12 @@
     <div class="container">
       <div class="Email" id="EmailList"></div>
       <div class="EmailSent" id="EmailListSent"></div>
-      <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "submit-form">
+
+      <!-- complain form -->
+
+      <form action="upload-manager.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "submit-form">
         <label for="sub">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Text Here">
+        <input type="text" id="subject" name="subject" placeholder="Text Here" required>
 
 
         <label for="category">Category</label>
@@ -351,20 +355,44 @@
 
         <label for="description">Description</label>
 
-        <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
+        <textarea id="description" name="description" placeholder="Write something.." rows="6" required></textarea>
 
-        <h5><input type="checkbox" name="agree1">&nbsp;Do You want to upload file in your support </h5>
+        <h5><input type="checkbox" id="agree1">&nbsp;Do You want to upload file in your support </h5>
         <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="checkbox" name="agree2">
+        <input type="checkbox" id="agree2">
         <label>I hereby declare that the information/document provided above is correct.
            I shall be responsible for furnishing any wrong information/document.</label>
            <br>
+
       <input type="submit" value="Submit" style="margin-bottom:10px;" id="complain-button">
 
+
+      <script>
+        $(document).ready(function(){
+          var fup= $('#fileToUpload');
+          var btn= $('#complain-button');
+          $(fup).attr('disabled','disabled');
+          $(btn).attr('disabled','disabled');
+          $('#agree1').click(function(){
+              if($(fup).attr('disabled')) $(fup).removeAttr('disabled');
+              else $(fup).attr('disabled','disabled');
+          });
+          $('#agree2').click(function(){
+              if($(btn).attr('disabled')){
+                  $(btn).removeAttr('disabled');
+                }
+              else $(btn).attr('disabled','disabled');
+          });
+
+        });
+
+      </script>
   </form>
-  <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "suggestion-form">
+
+  <!-- suggestion form -->
+  <form action="upload_suggestion.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "suggestion-form">
     <label for="sub">Subject</label>
-    <input type="text" id="subject" name="subject" placeholder="Text Here">
+    <input type="text" id="subject" name="subject" placeholder="Text Here" required>
 
 
     <label for="category">Category</label>
@@ -379,26 +407,27 @@
 
     <label for="description">Suggestion</label>
 
-    <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
+    <textarea id="description" name="description" placeholder="Write something.." rows="6" required></textarea>
     <br><br>
        <br>
   <input type="submit" value="Submit" style="margin-bottom:10px;" id="suggestion-button">
 
 </form>
     <script>
+        var val = "<?php echo $_SESSION['user'];?>";
          $(document).ready(function() {
-                $("#EmailList").load("EmailCardsStudent.html");
+                $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                   $('.back').click(function(){
                       if($(".active").attr('id') == "Home")
-                        $("#EmailList").load("EmailCardsStudent.html");
+                        $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                       else if($(".active").attr('id') == "Sent")
-                        $("#EmailListSent").load("EmailCardsSent.html");
+                        $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Sent').click(function(){
-                    $("#EmailListSent").load("EmailCardsSent.html");
+                    $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Home').click(function(){
-                    $("#EmailList").load("EmailCardsStudent.html");
+                    $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                 });
          });
      </script>

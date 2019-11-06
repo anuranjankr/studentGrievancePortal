@@ -1,7 +1,8 @@
 <?php
 // Check if the form was submitted
 session_start();
-$name=$_SESSION['user'];
+$name=$_GET['uName'];
+$roll=substr($name,-17,-13);
 //echo $_SESSION['user'];
 $servername = "localhost";
 $username = "root";//username
@@ -28,7 +29,7 @@ $par_c_num_year='';
 while($row=mysqli_fetch_array($result2))
   $par_c_num_year= $row[0];
 
-$complain_num=(int)($par_c_num_year.$par_c_num.$_SESSION['roll']);
+$complain_num=(int)($par_c_num_year.$par_c_num.$roll);
 
 
 
@@ -83,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if ($con->query($sql3) === TRUE){
     $sql4="UPDATE no_of_complains SET value=$par_c_num;";
     if ($con->query($sql4) === TRUE){
-      //$_SESSION['user']=$name;
+      $_SESSION['user']=$name;
       header('location:studentStartUpPage.php');
     }
   }

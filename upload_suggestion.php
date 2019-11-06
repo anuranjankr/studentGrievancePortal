@@ -1,7 +1,7 @@
 <?php
 // Check if the form was submitted
 session_start();
-$name=$_SESSION['user'];
+$name=$_GET['uName'];
 //echo $_SESSION['user'];
 $servername = "localhost";
 $username = "root";//username
@@ -24,11 +24,11 @@ mysqli_select_db($con, 'sgp');
   $description=$_POST['description'];
 
   $sql3="INSERT INTO suggestion_table (user_id, subject, category, suggestion)VALUES ('$name','$subject', '$category', '$description');";
-  echo $description;
-  //if ($con->query($sql3) === TRUE){
-      //$_SESSION['user']=$name;
-    //  header('location:studentStartUpPage.php');
-  //}
+
+  if ($con->query($sql3) === TRUE){
+      $_SESSION['user']=$name;
+      header('location:studentStartUpPage.php');
+  }
 
 
 ?>
