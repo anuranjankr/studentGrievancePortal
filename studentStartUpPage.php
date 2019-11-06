@@ -28,6 +28,7 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
 
+
   <script>
       $(document).ready(function(){
           $('.not-active').click(function(){
@@ -334,32 +335,6 @@
     <div class="container">
       <div class="Email" id="EmailList"></div>
       <div class="EmailSent" id="EmailListSent"></div>
-      <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "submit-form">
-        <label for="sub">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Text Here">
-
-
-        <label for="category">Category</label>
-
-        <select id="category" name="category">
-          <option value="hostel">Hostel</option>
-          <option value="mess">Mess</option>
-          <option value="academic">Academic</option>
-          <option value="sports">Sports</option>
-          <option value="others">Others</option>
-        </select>
-
-        <label for="description">Description</label>
-
-        <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
-
-        <h5><input type="checkbox" name="agree1">&nbsp;Do You want to upload file in your support </h5>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="checkbox" name="agree2">
-        <label>I hereby declare that the information/document provided above is correct.
-           I shall be responsible for furnishing any wrong information/document.</label>
-           <br>
-      <input type="submit" value="Submit" style="margin-bottom:10px;" id="complain-button">
 
   </form>
   <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "suggestion-form">
