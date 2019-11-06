@@ -14,9 +14,13 @@ else{
 mysqli_select_db($con, 'sgp');
 
 
-$sql = "select complain_number,subject from complaint_box where user_id = '".$_POST['uName']."'; ";
+$sql1 = "select complain_number,subject from complaint_box where user_id = '".$_POST['uName']."' ORDER BY arrival_date DESC; ";
+$result1 = $con->query($sql1);
 
-$result = $con->query($sql);
+$sql2 = "select suggestion_number,subject from suggestion_table where user_id = '".$_POST['uName']."' ORDER BY arrival_date DESC ; ";
+$result2 = $con->query($sql2);
+
+
 ?>
 
 
