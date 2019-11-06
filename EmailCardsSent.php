@@ -75,14 +75,9 @@ $numRows= $result1->num_rows + $result2->num_rows;
           var myClass = $(this).attr("class");
           var res_id=myClass.substr(4);
           var pass2 = '.'+'mail-title1'+res_id;
-          var val = parseInt($(pass2).text());
-          var noData=-1;
-          if(i<=<?php echo $result2->num_rows; ?>){
-            alert(i);
-            $(".EmailList1").load("MailReadStudentSent.php", {s_num: val,c_num: noData });
-          }else{
-            $(".EmailList1").load("MailReadStudentSent.php", {c_num: val,s_num: noData });
-          }
+          var val = parseInt($(pass2).text());      
+        $(".EmailList1").load("MailReadStudentSent.php", {s_num: val });
+
         });
       }
   });
@@ -95,12 +90,16 @@ $numRows= $result1->num_rows + $result2->num_rows;
     //  echo $row['subject'];
     //  echo "<br>";
     echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['suggestion_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+    //$sql3="Insert Into temp Select suggestion_number,subject,suggestion From suggestion_table; ";
+  //  $result3=$con->query($sql3);
+
       $k++;
     }
       while($row=mysqli_fetch_array($result1)){
 
           echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
-
+      //    $sql4="Insert Into temp Select complain_number,subject,description From complaint_box; ";
+      //    $result4=$con->query($sql4);
         $k++;
       }
     ?>
