@@ -30,7 +30,8 @@ $result = $con->query($sql);
   $(document).ready(function() {
   var subject = "<?php while($row=mysqli_fetch_array($result)) echo $row['subject']; $result->data_seek(0); ?>";
   var sender = "<?php while($row=mysqli_fetch_array($result)) echo $row['complain_number']; $result->data_seek(0); ?>";
-  var description = "<?php while($row=mysqli_fetch_array($result)) echo $row['description']; ?>";
+  var description = `<?php while($row=mysqli_fetch_array($result)) echo nl2br($row['description']); ?>`;
+  //var descrp=description.replace(/(\r\n|\n|\r)/gm,"<br>");
   $('.email-body').append('<div class="Subject"> '+subject+'</div>');
   $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
   $('.email-body').append('<div class ="mail-page">'+description+'</div>');

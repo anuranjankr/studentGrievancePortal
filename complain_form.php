@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['user']='anuranjan.cse.1713@iiitbh.ac.in';//$_POST['uName2'];
+$_SESSION['roll']=substr($_SESSION['user'],-17,-13);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,9 +34,12 @@
           else $(fup).attr('disabled','disabled');
       });
       $('#agree2').click(function(){
-          if($(btn).attr('disabled')) $(btn).removeAttr('disabled');
+          if($(btn).attr('disabled')){
+              $(btn).removeAttr('disabled');
+            }
           else $(btn).attr('disabled','disabled');
       });
+
     });
 
   </script>
@@ -51,9 +60,9 @@
 
       <label for="description">Description</label>
 
-      <textarea id="description" name="description" placeholder="Write something.." rows="6" required></textarea>
+      <textarea id="description" name="description" placeholder="Write something.." rows="6" style="white-space: pre-wrap;" required></textarea>
 
-      <h5><input type="checkbox" id="agree1">&nbsp;Do You want to upload file in your support </h5>
+      <h5><input type="checkbox" id="agree1" name="agree1">&nbsp;Do You want to upload file in your support </h5>
       <input type="file" name="fileToUpload" id="fileToUpload">
       <input type="checkbox" id="agree2">
       <label>I hereby declare that the information/document provided above is correct.

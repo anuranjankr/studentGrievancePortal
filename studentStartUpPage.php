@@ -336,30 +336,13 @@
       <div class="Email" id="EmailList"></div>
       <div class="EmailSent" id="EmailListSent"></div>
 
-  </form>
-  <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "suggestion-form">
-    <label for="sub">Subject</label>
-    <input type="text" id="subject" name="subject" placeholder="Text Here">
+
+      <!--  complain form -->
 
 
-    <label for="category">Category</label>
+      <!--  suggestion form -->
 
-    <select id="category" name="category">
-      <option value="hostel">Hostel</option>
-      <option value="mess">Mess</option>
-      <option value="academic">Academic</option>
-      <option value="sports">Sports</option>
-      <option value="others">Others</option>
-    </select>
 
-    <label for="description">Suggestion</label>
-
-    <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
-    <br><br>
-       <br>
-  <input type="submit" value="Submit" style="margin-bottom:10px;" id="suggestion-button">
-
-</form>
     <script>
          var val = "<?php echo $_SESSION['user'];?>";
          $(document).ready(function() {
