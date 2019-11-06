@@ -224,6 +224,9 @@ a:hover {
 #submit-form{
     display:block;
 }
+#MyForm{
+  visibility: hidden;
+}
 .Complain{
   display:none;
   padding:5px;

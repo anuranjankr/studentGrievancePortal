@@ -28,6 +28,7 @@
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
 
+
   <script>
       $(document).ready(function(){
           $('.not-active').click(function(){
@@ -36,7 +37,7 @@
               document.getElementById("Home").className = "active";
               document.getElementById("Compose").className = "not-active";
               document.getElementById("Sent").className = "not-active";
-              document.getElementById("submit-form").style.visibility = "hidden";
+              document.getElementById("MyForm").style.visibility = "hidden";
               document.getElementById("EmailListSent").style.display = "none";
               document.getElementById("EmailListSent").style.width = "0";
               document.getElementById("EmailListSent").style.height = "0";
@@ -52,7 +53,7 @@
                     document.getElementById("Home").className = "active";
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
-                    document.getElementById("submit-form").style.visibility = "hidden";
+                    document.getElementById("MyForm").style.visibility = "hidden";
                     document.getElementById("EmailListSent").style.display = "none";
                     document.getElementById("EmailListSent").style.width = "0";
                     document.getElementById("EmailListSent").style.height = "0";
@@ -69,7 +70,7 @@
                     document.getElementById("EmailList").style.visibility = "hidden";
                     document.getElementById("EmailList").style.width = "0";
                     document.getElementById("EmailList").style.height = "0";
-                    document.getElementById("submit-form").style.visibility = "visible";
+                    document.getElementById("MyForm").style.visibility = "visible";
                     document.getElementById("EmailListSent").style.display = "none";
                     document.getElementById("EmailListSent").style.width = "0";
                     document.getElementById("EmailListSent").style.height = "0";
@@ -83,7 +84,7 @@
                     document.getElementById("EmailList").style.visibility = "hidden";
                     document.getElementById("EmailList").style.width = "0";
                     document.getElementById("EmailList").style.height = "0";
-                    document.getElementById("submit-form").style.visibility = "hidden";
+                    document.getElementById("MyForm").style.visibility = "hidden";
                     document.getElementById("EmailListSent").style.display = "block";
                     document.getElementById("EmailListSent").style.width = "inherit";
                     document.getElementById("EmailListSent").style.height = "500px";
@@ -99,7 +100,7 @@
               document.getElementById("EmailList").style.visibility = "hidden";
               document.getElementById("EmailList").style.width = "0";
               document.getElementById("EmailList").style.height = "0";
-              document.getElementById("submit-form").style.visibility = "visible";
+              document.getElementById("MyForm").style.visibility = "visible";
               document.getElementById("EmailListSent").style.display = "none";
               document.getElementById("EmailListSent").style.width = "0";
               document.getElementById("EmailListSent").style.height = "0";
@@ -111,7 +112,7 @@
                     document.getElementById("Home").className = "active";
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
-                    document.getElementById("submit-form").style.visibility = "hidden";
+                    document.getElementById("MyForm").style.visibility = "hidden";
                     document.getElementById("EmailListSent").style.display = "none";
                     document.getElementById("EmailListSent").style.width = "0";
                     document.getElementById("EmailListSent").style.height = "0";
@@ -131,7 +132,7 @@
                   document.getElementById("EmailListSent").style.display = "none";
                   document.getElementById("EmailListSent").style.width = "0";
                   document.getElementById("EmailListSent").style.height = "0";
-                  document.getElementById("submit-form").style.visibility = "visible";
+                  document.getElementById("MyForm").style.visibility = "visible";
                   document.getElementById("enable").style.display = "inline-block";
                   document.getElementById("disable").style.display = "inline-block";
                 }
@@ -142,7 +143,7 @@
                   document.getElementById("EmailList").style.visibility = "hidden";
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
-                  document.getElementById("submit-form").style.visibility = "hidden";
+                  document.getElementById("MyForm").style.visibility = "hidden";
                   document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
@@ -158,7 +159,7 @@
               document.getElementById("EmailList").style.visibility = "hidden";
               document.getElementById("EmailList").style.width = "0";
               document.getElementById("EmailList").style.height = "0";
-              document.getElementById("submit-form").style.visibility = "hidden";
+              document.getElementById("MyForm").style.visibility = "hidden";
               document.getElementById("EmailListSent").style.display = "block";
               document.getElementById("EmailListSent").style.width = "inherit";
               document.getElementById("EmailListSent").style.height = "500px";
@@ -170,7 +171,7 @@
                     document.getElementById("Home").className = "active";
                     document.getElementById("Compose").className = "not-active";
                     document.getElementById("Sent").className = "not-active";
-                    document.getElementById("submit-form").style.visibility = "hidden";
+                    document.getElementById("MyForm").style.visibility = "hidden";
                     document.getElementById("EmailListSent").style.display = "none";
                     document.getElementById("EmailListSent").style.width = "0";
                     document.getElementById("EmailListSent").style.height = "0";
@@ -190,7 +191,7 @@
                   document.getElementById("EmailListSent").style.display = "none";
                   document.getElementById("EmailListSent").style.width = "0";
                   document.getElementById("EmailListSent").style.height = "0";
-                  document.getElementById("submit-form").style.visibility = "visible";
+                  document.getElementById("MyForm").style.visibility = "visible";
                   document.getElementById("enable").style.display = "inline-block";
                   document.getElementById("disable").style.display = "inline-block";
                 }
@@ -201,7 +202,7 @@
                   document.getElementById("EmailList").style.visibility = "hidden";
                   document.getElementById("EmailList").style.width = "0";
                   document.getElementById("EmailList").style.height = "0";
-                  document.getElementById("submit-form").style.visibility = "hidden";
+                  document.getElementById("MyForm").style.visibility = "hidden";
                   document.getElementById("EmailListSent").style.display = "block";
                   document.getElementById("EmailListSent").style.width = "inherit";
                   document.getElementById("EmailListSent").style.height = "500px";
@@ -274,6 +275,7 @@
                     document.getElementsByClassName("Suggestion")[0].id = "disable";
                     document.getElementById("submit-form").style.display="block";
                     document.getElementById("suggestion-form").style.display="none";
+                    $("#submit-form").load("complain_form.php",{uName: val});
                     $('#disable').click(function(){
                         var name = $(this).attr('class');
                         if(name == "Complain")
@@ -282,6 +284,7 @@
                           document.getElementsByClassName("Suggestion")[0].id = "disable";
                           document.getElementById("submit-form").style.display="block";
                           document.getElementById("suggestion-form").style.display="none";
+                          $("#submit-form").load("complain_form.php",{uName: val});
                         }
                         else if(name == "Suggestion")
                         {
@@ -289,6 +292,7 @@
                           document.getElementsByClassName("Suggestion")[0].id = "enable";
                           document.getElementById("submit-form").style.display="none";
                           document.getElementById("suggestion-form").style.display="block";
+                          $("#suggestion-form").load("suggestion_form.php",{uName: val});
                         }
                     });
                   }
@@ -298,6 +302,7 @@
                     document.getElementsByClassName("Suggestion")[0].id = "enable";
                     document.getElementById("submit-form").style.display="none";
                     document.getElementById("suggestion-form").style.display="block";
+                    $("#suggestion-form").load("suggestion_form.php",{uName: val});
                     $('#disable').click(function(){
                         var name = $(this).attr('class');
                         if(name == "Complain")
@@ -306,6 +311,7 @@
                           document.getElementsByClassName("Suggestion")[0].id = "disable";
                           document.getElementById("submit-form").style.display="block";
                           document.getElementById("suggestion-form").style.display="none";
+                          $("#submit-form").load("complain_form.php",{uName: val});
                         }
                         else if(name == "Suggestion")
                         {
@@ -313,6 +319,7 @@
                           document.getElementsByClassName("Suggestion")[0].id = "enable";
                           document.getElementById("submit-form").style.display="none";
                           document.getElementById("suggestion-form").style.display="block";
+                          $("#suggestion-form").load("suggestion_form.php",{uName: val});
                         }
                     });
                   }
@@ -334,71 +341,36 @@
     <div class="container">
       <div class="Email" id="EmailList"></div>
       <div class="EmailSent" id="EmailListSent"></div>
-      <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "submit-form">
-        <label for="sub">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Text Here">
+      <div id="MyForm">
+      <div class ="ComplainForm" id="submit-form"></div>
+      <div class ="SuggestionForm" id="suggestion-form"></div>
+    </div>
+
+      <!--  complain form -->
 
 
-        <label for="category">Category</label>
-
-        <select id="category" name="category">
-          <option value="hostel">Hostel</option>
-          <option value="mess">Mess</option>
-          <option value="academic">Academic</option>
-          <option value="sports">Sports</option>
-          <option value="others">Others</option>
-        </select>
-
-        <label for="description">Description</label>
-
-        <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
-
-        <h5><input type="checkbox" name="agree1">&nbsp;Do You want to upload file in your support </h5>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="checkbox" name="agree2">
-        <label>I hereby declare that the information/document provided above is correct.
-           I shall be responsible for furnishing any wrong information/document.</label>
-           <br>
-      <input type="submit" value="Submit" style="margin-bottom:10px;" id="complain-button">
-
-  </form>
-  <form action="/action_page.php" method="post" enctype="multipart/form-data" id = "suggestion-form">
-    <label for="sub">Subject</label>
-    <input type="text" id="subject" name="subject" placeholder="Text Here">
+      <!--  suggestion form -->
 
 
-    <label for="category">Category</label>
-
-    <select id="category" name="category">
-      <option value="hostel">Hostel</option>
-      <option value="mess">Mess</option>
-      <option value="academic">Academic</option>
-      <option value="sports">Sports</option>
-      <option value="others">Others</option>
-    </select>
-
-    <label for="description">Suggestion</label>
-
-    <textarea id="description" name="description" placeholder="Write something.." rows="6"></textarea>
-    <br><br>
-       <br>
-  <input type="submit" value="Submit" style="margin-bottom:10px;" id="suggestion-button">
-
-</form>
     <script>
+         var val = "<?php echo $_SESSION['user'];?>";
          $(document).ready(function() {
-                $("#EmailList").load("EmailCardsStudent.html");
+                $("#EmailList").load("EmailCardsStudent.php",{uName: val});
+
                   $('.back').click(function(){
                       if($(".active").attr('id') == "Home")
-                        $("#EmailList").load("EmailCardsStudent.html");
+                        $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                       else if($(".active").attr('id') == "Sent")
-                        $("#EmailListSent").load("EmailCardsSent.html");
+                        $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Sent').click(function(){
-                    $("#EmailListSent").load("EmailCardsSent.html");
+                    $("#EmailListSent").load("EmailCardsSent.php",{uName: val});
                 });
                 $('#Home').click(function(){
-                    $("#EmailList").load("EmailCardsStudent.html");
+                    $("#EmailList").load("EmailCardsStudent.php",{uName: val});
+                });
+                $('#Compose').click(function(){
+                    $("#submit-form").load("complain_form.php",{uName: val});
                 });
          });
      </script>

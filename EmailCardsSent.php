@@ -79,7 +79,7 @@ $result2 = $con->query($sql2);
   <div class="EmailList">
     <?php
     $k = 1;
-      while($row=mysqli_fetch_array($result)){
+      while($row=mysqli_fetch_array($result1)){
       //  echo $row['complain_number']." ";
       //  echo $row['subject'];
       //  echo "<br>";
