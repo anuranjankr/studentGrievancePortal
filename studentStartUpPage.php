@@ -340,7 +340,7 @@
 
       <!-- complain form -->
 
-      <form action="upload-manager.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "submit-form">
+      <form action="upload-manager2.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "submit-form">
         <label for="sub">Subject</label>
         <input type="text" id="subject" name="subject" placeholder="Text Here" required>
 

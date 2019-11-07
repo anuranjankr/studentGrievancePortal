@@ -1,4 +1,8 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 // Check if the form was submitted
 session_start();
 $name=$_GET['uName'];
@@ -78,6 +82,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $subject=$_POST['subject'];
 $category=$_POST['category'];
 $description=$_POST['description'];
+
+require 'PHPMailer/vendor/autoload.php';
+
+$mail = new PHPMailer();
+
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+$mail->SMTPDebug = 1;
+$mail->SMTPSecure = 'tls';
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 587;
+$mail->isHTML(true);
+$mail->Username = "pritampal99@gmail.com";
+$mail->Password = "99914090";
+$mail->setFrom('pritampal99@gmail.com', 'Pritam Pal');
+$mail->addAddress($name);
+//$mail->AddCC();
+$mail->Subject = $subject;
+$mail->Body = $complain_num."<br>".$description;
+if(!$mail->send()) {
+   echo 'Message could not be sent.';
+   echo 'Mailer Error: ' . $mail->ErrorInfo;
+   exit;
+}
+//$mail->ClearAllRecipients();
+
 
 $sql3="INSERT INTO complaint_box (complain_number, user_id, category, subject, description, uploaded_filename)VALUES ('$complain_num', '$name', '$category','$subject', '$description', '$filename')";
 
