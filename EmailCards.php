@@ -1,3 +1,23 @@
+<?php
+//echo $_SESSION['user'];
+$servername = "localhost";
+$username = "root";//username
+$password = ""; //password
+
+$con = mysqli_connect($servername, $username, $password);
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+else{
+}
+mysqli_select_db($con, 'sgp');
+
+
+$sql = "select complain_number,subject from complaint_box,admin_details where admin_details.id = '".$_POST['uName']."' && complaint_box.category = admin_details.category && complaint_box.level <= admin_details.level ; ";
+$result = $con->query($sql);
+?>
+
 <html>
 <head>
 <title>
@@ -13,9 +33,6 @@
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
-  for(i = 1; i <= pageLimit; i++) {
-        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-content"><input type="checkbox" id="Checkbox'+i+'" /><span class="card-hyperlink'+i+'" id="hrefing"><span class="mail-title"><b>SAMPLE MAIL'+i+' SUBJECT</b></span><span class="mail-description"><b>DESCRIPTION FOR MAIL'+i+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div>');
-      }
       var passNoDelete = -1;
       for(i=1;i<=pageLimit;i++)
       {
@@ -68,12 +85,23 @@
       {
         var pass1 = '.'+'card'+i;
         $(pass1).click(function() {
-              $(".EmailList").load("MailRead.html");
+          var myClass = $(this).attr("class");
+          var res_id=myClass.substr(4);
+          var pass2 = '.'+'mail-title'+res_id;
+          var val = parseInt($(pass2).text());
+              $(".EmailList").load("MailRead.php",{c_num: val});
         });
       }
   });
   </script>
   <div class="EmailList">
+    <?php
+    $k = 1;
+      while($row=mysqli_fetch_array($result)){
+        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        $k++;
+      }
+    ?>
   </div>
   <div id="myModal" class="modal">
 

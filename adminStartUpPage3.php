@@ -1,7 +1,6 @@
 <?php
   session_start();
-  $adminName=$_SESSION['user'];
-  if(isset($adminName)==0){
+  if(isset($_SESSION['user'])==0){
       header('location:login_demo.html');
     }
 ?>
@@ -170,24 +169,23 @@
       <div class="Email" id="EmailList"></div>
       <div class="Email2" id="EmailList2"></div>
     <script>
-      var val="<?php echo $adminName;?>";
          $(document).ready(function() {
-                $("#EmailList").load("EmailCards.php", {uName: val});
+                $("#EmailList").load("EmailCards.html");
                 $('.back').click(function(){
                     if($(".active").attr('id') == "Home")
-                      $("#EmailList").load("EmailCards.php", {uName: val});
+                      $("#EmailList").load("EmailCards.html");
                     else if($(".active").attr('id') == "ComplainComplete")
-                      $("#EmailList2").load("EmailCardsCompleted.php", {uName: val});
+                      $("#EmailList2").load("EmailCardsSent.html");
               });
          });
      </script>
      <script>
           $(document).ready(function() {
      $('#ComplainComplete').click(function(){
-          $("#EmailList2").load("EmailCardsCompleted.php", {uName: val});
+          $("#EmailList2").load("EmailCardsSent.html");
         });
         $('#Home').click(function(){
-            $("#EmailList").load("EmailCards.php", {uName: val});
+            $("#EmailList").load("EmailCards.html");
         });
     });
  </script>
