@@ -80,7 +80,7 @@ $result = $con->query($sql);
           e.stopPropagation();
         }
       });
-
+      var adm="<?php echo $_POST['uName'];?>";
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+'card'+i;
@@ -89,7 +89,7 @@ $result = $con->query($sql);
           var res_id=myClass.substr(4);
           var pass2 = '.'+'mail-title'+res_id;
           var val = parseInt($(pass2).text());
-              $(".EmailList").load("MailRead.php",{c_num: val});
+              $(".EmailList").load("MailRead.php",{c_num: val,adName: adm});
         });
       }
   });

@@ -1,6 +1,8 @@
 <?php
   session_start();
   $usrName=$_SESSION['user'];
+  //if(isset($_GET['user']))
+    //$usrName=$_GET['user'];
   if(isset($usrName)==0){
       header('location:login_demo.html');
     }
@@ -251,7 +253,7 @@
   <div class="column side" style="background-color:#f1f1f1;">
 
     <div class="container">
-        <label for="usrName" ><h2>Hi <h4> <?php echo $_SESSION['user'];?></h4></h2></label>
+        <label for="usrName" ><h2>Hi <h4> <?php echo $usrName;?></h4></h2></label>
     </div>
     <br>
     <div class="active" id="Home">Inbox</div>
@@ -414,7 +416,7 @@
 
 </form>
     <script>
-        var val = "<?php echo $_SESSION['user'];?>";
+        var val = "<?php echo $usrName;?>";
          $(document).ready(function() {
                 $("#EmailList").load("EmailCardsStudent.php",{uName: val});
                   $('.back').click(function(){

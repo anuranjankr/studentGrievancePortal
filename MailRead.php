@@ -1,5 +1,6 @@
 <?php
 //echo $_SESSION['user'];
+session_start();
 $servername = "localhost";
 $username = "root";//username
 $password = ""; //password
@@ -14,7 +15,7 @@ else{
 mysqli_select_db($con, 'sgp');
 
 //echo $_POST['c_num'];
-$sql = "select subject,complain_number,description from complaint_box where complain_number =  ".$_POST['c_num']."; ";
+$sql = "select * from complaint_box where complain_number =  ".$_POST['c_num']."; ";
 
 $result = $con->query($sql);
 ?>
@@ -94,10 +95,12 @@ $("#PDFDownload").click(function () {
 
     <!-- Modal content -->
     <div class="modal-content">
+      <form action="solved_table_update.php?c_num=<?php echo $_POST['c_num']; ?>&adName=<?php echo $_POST['adName']; ?> " method="post">
       <span class="close">&times;</span>
       <label for="remark">Remarks</label><br /><br />
-      <textarea id="approveRemark" name="approve-remark" placeholder="Write how the problem was solved or can be solved...." rows="6"></textarea>
-      <div class ="approve" id="approve-confirm">Confirm Approval</div>
+      <textarea id="approveRemark" name="approve-remark" placeholder="Write how the problem was solved or can be solved...." rows="6" required></textarea>
+      <button  type="submit" class ="approve" id="approve-confirm">Confirm Approval</button>
+    </form>
     </div>
 
   </div>

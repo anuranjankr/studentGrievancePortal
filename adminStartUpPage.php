@@ -195,7 +195,7 @@
 
 </div>
 
-<div class="footer">
+<div class="footer-box">
   <p>Copyright(c) Indian Institute of Information Technology Bhagalpur</p>
 </div>
 
