@@ -67,7 +67,6 @@ $numRows= $result1->num_rows + $result2->num_rows;
           e.stopPropagation();
         });
       }
-
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+'card'+i;
@@ -75,7 +74,7 @@ $numRows= $result1->num_rows + $result2->num_rows;
           var myClass = $(this).attr("class");
           var res_id=myClass.substr(4);
           var pass2 = '.'+'mail-title1'+res_id;
-          var val = parseInt($(pass2).text());      
+          var val = parseInt($(pass2).text());
         $(".EmailList1").load("MailReadStudentSent.php", {s_num: val });
 
         });
@@ -85,6 +84,7 @@ $numRows= $result1->num_rows + $result2->num_rows;
   <div class="EmailList1">
     <?php
     $k = 1;
+    if($result2 || $result1){
     while($row=mysqli_fetch_array($result2)){
     //  echo $row['complain_number']." ";
     //  echo $row['subject'];
@@ -101,6 +101,10 @@ $numRows= $result1->num_rows + $result2->num_rows;
       //    $sql4="Insert Into temp Select complain_number,subject,description From complaint_box; ";
       //    $result4=$con->query($sql4);
         $k++;
+      }
+    }
+      else {
+        echo '<h1 class="no_mails"><center> No mails for you </center><h1>';
       }
     ?>
   </div>

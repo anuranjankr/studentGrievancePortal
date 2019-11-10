@@ -258,7 +258,7 @@
     <br>
     <div class="active" id="Home">Inbox</div>
     <br>
-    <div class="not-active" id="Compose">Compose Mail</div>
+    <div class="not-active" id="Compose">Compose Grievance</div>
     <br>
     <div class="not-active" id="Sent">Sent</div>
 
@@ -324,9 +324,8 @@
       </script>
       <button type= "button" id ="go-back" class="back"></button><div class="Complain" id="enable">Complain</div><div class="Suggestion" id="disable">Suggestion</div>
       <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
-          <button type="submit"><i class="fa fa-search"></i></button>
+        <form action="/reset_pass_user.php">
+          <button type="submit"><span>Reset Password</span></button>
         </form>
      </div>
 
@@ -340,12 +339,12 @@
 
       <!-- complain form -->
 
-      <form action="upload-manager2.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "submit-form">
+      <form action="upload-manager.php?uName=<?php echo $usrName; ?>" method="post" enctype="multipart/form-data" id = "submit-form">
         <label for="sub">Subject</label>
         <input type="text" id="subject" name="subject" placeholder="Text Here" required>
 
 
-        <label for="category">Category</label>
+        <label for="category">Grievance Category</label>
 
         <select id="category" name="category">
           <option value="hostel">Hostel</option>
@@ -359,13 +358,15 @@
 
         <textarea id="description" name="description" placeholder="Write something.." rows="6" required></textarea>
 
-        <h5><input type="checkbox" id="agree1">&nbsp;Do You want to upload file in your support </h5>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="checkbox" id="agree2">
-        <label>I hereby declare that the information/document provided above is correct.
-           I shall be responsible for furnishing any wrong information/document.</label>
-           <br>
+        <h5><input type="checkbox" id="agree1">&nbsp;<b>Upload Supporting Document</b> </h5>
+        <input type="file" name="fileToUpload" id="fileToUpload" required>
+        <div style="line-height:.4em">
+        <label style="color:RED;">Declaration</label>
+        <input type="checkbox" id="agree2" style="display:inline-block;margin-bottom:0px;">
+        <span style="white-space: pre-wrap"><b>I hereby declare that the information provided above by me is correct to the best of my knowledge. I shall be responsible for furnishing any wrong information or miss representation.</b></span>
 
+         </div>
+            <br>
       <input type="submit" value="Submit" style="margin-bottom:10px;" id="complain-button">
 
 
@@ -397,7 +398,7 @@
     <input type="text" id="subject" name="subject" placeholder="Text Here" required>
 
 
-    <label for="category">Category</label>
+    <label for="category">Suggestion Category</label>
 
     <select id="category" name="category">
       <option value="hostel">Hostel</option>

@@ -39,7 +39,8 @@ $result = $con->query($sql);
     }
 
     $sql_app="INSERT INTO solved_complain (complain_number, user_id, category, level, subject, description, arrival_date, solved_by, Remarks)VALUES ('$cp_num', '$usr', '$category', '$level', '$sub', '$descrp', '$arrivalDate', '$sol_by', '".$_POST['approve-remark']."')";
-    if($con->query($sql_app) == TRUE){
+    $sql_comp_sol="UPDATE complaint_box SET solved_by='$sol_by' WHERE complain_number='$cp_num';";
+    if($con->query($sql_app) == TRUE && $con->query($sql_comp_sol) == TRUE ){
       $_SESSION['user']=$_GET['adName'];
       header('location:adminStartUpPage.php');
     }

@@ -28,7 +28,6 @@
 
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
-
   <script>
       $(document).ready(function(){
           $('.not-active').click(function(){
@@ -156,12 +155,10 @@
 
       <button type= "button" id ="go-back" class="back"></button><label for="category" style="padding-left:10px;"></label>
       <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search"style="width:84%;border-radius: 0px;padding-bottom:10px;">
-          <button type="submit" style="content:&#x1F50D; height :inherit; width: auto;float:right;"></button>
+        <form action="/reset_pass_user.php">
+          <button type="submit"><span>Reset Password</span></button>
         </form>
      </div>
-
     </div>
     <div class="tab" style="height:80% ;">
 

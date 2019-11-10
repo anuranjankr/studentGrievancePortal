@@ -83,12 +83,17 @@ $result = $con->query($sql);
   <div class="EmailList">
     <?php
     $k = 1;
+    if($result){
       while($row=mysqli_fetch_array($result)){
       //  echo $row['complain_number']." ";
       //  echo $row['subject'];
       //  echo "<br>";
         echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
         $k++;
+      }
+    }
+      else {
+        echo '<h1 class="no_mails"><center> No mails for you </center><h1>';
       }
     ?>
   </div>
