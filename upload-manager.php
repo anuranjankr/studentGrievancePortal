@@ -74,6 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else{
               $filename = $complain_num.".".$ext;
+
                 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "upload/" . $filename);
                 echo "Your file was uploaded successfully.";
             }
@@ -117,6 +118,7 @@ if(!$mail->send()) {
    echo 'Mailer Error: ' . $mail->ErrorInfo;
    exit;
 }
+
 
 $sql3="INSERT INTO complaint_box (complain_number, user_id, category, subject, description, uploaded_filename)VALUES ('$complain_num', '$name', '$category','$subject', '$description', '$filename')";
 

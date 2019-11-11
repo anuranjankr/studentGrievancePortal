@@ -358,11 +358,11 @@
 
         <textarea id="description" name="description" placeholder="Write something.." rows="6" required></textarea>
 
-        <h5><input type="checkbox" id="agree1">&nbsp;<b>Upload Supporting Document</b> </h5>
+        <h5><input type="checkbox" id="agree1" name="agree1">&nbsp;<b>Upload Supporting Document</b> </h5>
         <input type="file" name="fileToUpload" id="fileToUpload" required>
         <div style="line-height:.4em">
         <label style="color:RED;">Declaration</label>
-        <input type="checkbox" id="agree2" style="display:inline-block;margin-bottom:0px;">
+        <input type="checkbox" id="agree2" name="agree1" style="display:inline-block;margin-bottom:0px;">
         <span style="white-space: pre-wrap"><b>I hereby declare that the information provided above by me is correct to the best of my knowledge. I shall be responsible for furnishing any wrong information or miss representation.</b></span>
 
          </div>
