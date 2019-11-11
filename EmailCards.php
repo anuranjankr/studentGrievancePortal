@@ -3,18 +3,14 @@
 $servername = "localhost";
 $username = "root";//username
 $password = ""; //password
-
 $con = mysqli_connect($servername, $username, $password);
-
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 else{
 }
 mysqli_select_db($con, 'sgp');
-
-
-$sql = "select complain_number,subject from complaint_box,admin_details where admin_details.id = '".$_POST['uName']."' && complaint_box.category = admin_details.category && complaint_box.level >= admin_details.level && solved_by == 'NONE' ; ";
+$sql = "select complain_number,subject from complaint_box,admin_details where admin_details.id = '".$_POST['uName']."' && complaint_box.category = admin_details.category && complaint_box.level >= admin_details.level && solved_by='NONE'; ";
 $result = $con->query($sql);
 ?>
 
@@ -29,7 +25,7 @@ $result = $con->query($sql);
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
     var cardNo = 0;
-    var pageLimit="<?php echo $result->num_rows;?>";
+    var pageLimit=<?php echo $result->num_rows; ?>;
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
@@ -44,26 +40,20 @@ $result = $con->query($sql);
             var closePass1 = '.'+'card'+myClass;
             cardNo = closePass1;
             e.stopPropagation();
-
             // Get the button that opens the modal
             //  var btn = document.getElementById("closed");
-
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
-
               modal.style.display = "block";
-
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
               modal.style.display = "none";
             }
-
         });
         $(pass2).click(function(e) {
           e.stopPropagation();
         });
       }
-
       $('#approve-reject').click(function(e) {
       var val = document.getElementById('approveRemark').value;
     //  document.getElementById('myModal').style.display="none";
@@ -97,14 +87,12 @@ $result = $con->query($sql);
   <div class="EmailList">
     <?php
     $k = 1;
-    if($result)
-    {
+      if($result->num_rows){
       while($row=mysqli_fetch_array($result)){
         echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
         $k++;
       }
-    }
-    else {
+    }else{
       echo '<h1 class="no_mails"><center> No mails for you </center><h1>';
     }
     ?>

@@ -32,11 +32,14 @@ $result = $con->query($sql);
   $(document).ready(function() {
     var subject = "<?php while($row=mysqli_fetch_array($result)) echo $row['subject']; $result->data_seek(0); ?>";
     var sender = "<?php while($row=mysqli_fetch_array($result)) echo $row['complain_number']; $result->data_seek(0); ?>";
+    var filename = "<?php while($row=mysqli_fetch_array($result)) echo $row['uploaded_filename']; $result->data_seek(0); ?>";
     var description = `<?php while($row=mysqli_fetch_array($result)) echo nl2br($row['description']); ?>`;
 
   $('.email-body').append('<div class="Subject"> '+subject+'</div>');
   $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
   $('.email-body').append('<div class ="mail-page">'+description+'</div>');
+  if(filename != 'none')
+    $('.email-body').append('<a href="upload/'+filename+'" download > Download Attachment </a> ');
   });
 </script>
 <script>
@@ -88,8 +91,8 @@ $("#PDFDownload").click(function () {
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
   <div class ="approve" id="myBtn">Approve</div>
+  <div class ="approve" id="myBtn2" onclick="location.href='forward_category.php?c_num=<?php echo $_POST['c_num']; ?>&adName=<?php echo $_POST['adName']; ?>'">Forward</div>
 
-  <div class ="forward" id="forward_cat" onclick="location.href='forward_category.php?c_num=<?php echo $_POST['c_num']; ?>&adName=<?php echo $_POST['adName']; ?>'">Forward</div>
   <div class ="download" id="PDFDownload">Save As PDF</div>
   <div id="editor"></div>
   <div id="myModal" class="modal">

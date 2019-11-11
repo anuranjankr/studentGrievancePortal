@@ -36,7 +36,7 @@ $numRows= $result1->num_rows + $result2->num_rows;
   <link rel = "stylesheet" href ="css/EmailCards.css">
   <script src="js/3.4.1-jquery.min.js"></script>
   <script>
-    var pageLimit="<?php echo $numRows;?>";
+    var pageLimit=<?php echo $numRows;?>;
     var emailsLeft = pageLimit;
     var i;
     $(document).ready(function() {
@@ -84,7 +84,7 @@ $numRows= $result1->num_rows + $result2->num_rows;
   <div class="EmailList1">
     <?php
     $k = 1;
-    if($result2 || $result1){
+  //  if($result2 || $result1){
     while($row=mysqli_fetch_array($result2)){
     //  echo $row['complain_number']." ";
     //  echo $row['subject'];
@@ -102,10 +102,10 @@ $numRows= $result1->num_rows + $result2->num_rows;
       //    $result4=$con->query($sql4);
         $k++;
       }
-    }
-      else {
-        echo '<h1 class="no_mails"><center> No mails for you </center><h1>';
-      }
+    //}
+    //  else {
+    //    echo '<h1 class="no_mails"><center> No mails for you </center><h1>';
+    //  }
     ?>
   </div>
 </body>
