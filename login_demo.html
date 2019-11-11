@@ -50,19 +50,50 @@
       <button type="button" class="toggle-btn" onclick="login_admin()">Admin</button>
     </div>
     <form id="user" class="input-group" action="login_user.php" method="post">
-    <input type="text" name="user_id" class="input-field" placeholder="User Id" required>
-    <input type="password" name="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
-    <input type="checkbox" class="check-box">Remember password
+    <input type="text" name="user_id" class="input-field" placeholder="User Id" id="email"required>
+    <input type="password" name="password" class="input-field" placeholder="Enter Password" id="password" style="margin-bottom:10px;" required>
+    <input type="checkbox" class="check-box" id="rememberMe">Remember password
     <button type="submit" class="submit-btn">Log In</button>
     </form>
 
     <form id="admin" class="input-group" action="login_admin.php" method="post">
-    <input type="text" name="admin_id" class="input-field" placeholder="Admin Id" required>
-    <input type="password" name="password" class="input-field" placeholder="Enter Password" style="margin-bottom:10px;" required>
-    <input type="checkbox" class="check-box">Remember password
+    <input type="text" name="admin_id" class="input-field" placeholder="Admin Id" id="email" required>
+    <input type="password" name="password" class="input-field" placeholder="Enter Password" id="password" style="margin-bottom:10px;" required>
+    <input type="checkbox" class="check-box" id="rememberMe">Remember password
     <button type="submit" class="submit-btn">Log In</button>
     </form>
   </div>
+  <script>
+
+$(document).ready(function(){
+  let rmCheck = document.getElementById("rememberMe"),
+  emailInput = document.getElementById("email");
+  passwordInput = document.getElementById("password");
+
+if (localStorage.checkbox && localStorage.checkbox != "") {
+rmCheck.setAttribute("checked", "checked");
+emailInput.value = localStorage.username;
+passwordInput.value = localStorage.password;
+} else {
+rmCheck.removeAttribute("checked");
+emailInput.value = "";
+passwordInput.value = "";
+}
+    $('.submit-btn').click(function(){
+
+if (rmCheck.checked && emailInput.value != "") {
+  localStorage.username = emailInput.value;
+  localStorage.checkbox = rmCheck.value;
+  localStorage.password = passwordInput.value;
+} else {
+  localStorage.username = "";
+  localStorage.checkbox = "";
+  localStorage.password = "";
+}
+});
+});
+
+  </script>
 
   <script>
   var x = document.getElementById("user");
