@@ -218,7 +218,7 @@
     </script>
 </head>
 
-<body style="overflow:hidden;">
+<body>
 
   <div class="header-wrapper">
     <div class="site-name">
