@@ -33,7 +33,6 @@ $result = $con->query($sql);
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
-        var pass2 = '#'+"Checkbox"+i;
         var modal = document.getElementById("myModal");
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
@@ -50,9 +49,7 @@ $result = $con->query($sql);
               modal.style.display = "none";
             }
         });
-        $(pass2).click(function(e) {
-          e.stopPropagation();
-        });
+
       }
       $('#approve-reject').click(function(e) {
       var val = document.getElementById('approveRemark').value;
@@ -89,7 +86,7 @@ $result = $con->query($sql);
     $k = 1;
       if($result->num_rows){
       while($row=mysqli_fetch_array($result)){
-        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
         $k++;
       }
     }else{

@@ -120,6 +120,7 @@ a:hover {
   font-weight: bold;
 }
 .email-body{
+    overflow-y:scroll; 
     color : rbga(0,0,0,0.6) !important;
 }
 .Subject{

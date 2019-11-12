@@ -44,7 +44,6 @@ $numRows= $result1->num_rows;
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
-        var pass2 = '#'+"Checkbox"+i;
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
@@ -60,9 +59,7 @@ $numRows= $result1->num_rows;
                 e.stopPropagation();
               }
         });
-        $(pass2).click(function(e) {
-          e.stopPropagation();
-        });
+
       }
 
       for(i=1;i<=pageLimit;i++)
@@ -85,7 +82,7 @@ $numRows= $result1->num_rows;
   //  if($result1){
       while($row=mysqli_fetch_array($result1)){
 
-          echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span></div></div>';
+          echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title1'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span></div></div>';
 
         $k++;
       }
