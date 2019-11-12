@@ -45,7 +45,6 @@ $result = $con->query($sql);
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
-        var pass2 = '#'+"Checkbox"+i;
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
@@ -60,9 +59,6 @@ $result = $con->query($sql);
               else {
                 e.stopPropagation();
               }
-        });
-        $(pass2).click(function(e) {
-          e.stopPropagation();
         });
       }
       //var val = "<?php// echo $_POST['uName'];?>";
@@ -88,7 +84,7 @@ $result = $con->query($sql);
       //  echo $row['complain_number']." ";
       //  echo $row['subject'];
       //  echo "<br>";
-        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><input type="checkbox" id="Checkbox'.$k.'" /><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="dot"></span><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
         $k++;
       }
   //  }
