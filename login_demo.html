@@ -64,38 +64,6 @@
     </form>
   </div>
   <script>
-
-$(document).ready(function(){
-  let rmCheck = document.getElementById("rememberMe"),
-  emailInput = document.getElementById("email");
-  passwordInput = document.getElementById("password");
-
-if (localStorage.checkbox && localStorage.checkbox != "") {
-rmCheck.setAttribute("checked", "checked");
-emailInput.value = localStorage.username;
-passwordInput.value = localStorage.password;
-} else {
-rmCheck.removeAttribute("checked");
-emailInput.value = "";
-passwordInput.value = "";
-}
-    $('.submit-btn').click(function(){
-
-if (rmCheck.checked && emailInput.value != "") {
-  localStorage.username = emailInput.value;
-  localStorage.checkbox = rmCheck.value;
-  localStorage.password = passwordInput.value;
-} else {
-  localStorage.username = "";
-  localStorage.checkbox = "";
-  localStorage.password = "";
-}
-});
-});
-
-  </script>
-
-  <script>
   var x = document.getElementById("user");
   var y = document.getElementById("admin");
   var z = document.getElementById("btn");

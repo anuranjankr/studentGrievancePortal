@@ -45,6 +45,10 @@ $result = $con->query($sql);
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
+        var IsComplete = 1;
+        if(IsComplete){
+          document.getElementsByClassName("dot")[i-1].style.color = 'rgba(0,255,0,0.75)';
+        }
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
