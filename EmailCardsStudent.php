@@ -48,7 +48,7 @@ $result = $con->query($sql);
         var IsComplete = 1;
         var disp = 'dot'+i;
         if(IsComplete){
-          document.getElementById(disp).style.color = 'rgba(0,255,0,0.75)';
+          document.getElementById(disp).style.background = 'rgba(0,255,0,0.75)';
         }
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");

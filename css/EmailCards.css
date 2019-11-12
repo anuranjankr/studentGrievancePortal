@@ -120,8 +120,14 @@ a:hover {
   font-weight: bold;
 }
 .email-body{
-    overflow-y:scroll; 
+    overflow-y:scroll;
     color : rbga(0,0,0,0.6) !important;
+}
+.Username{
+    font-size: 20px;
+    padding:15px;
+    border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
+    background-color: rgba(0, 0, 0, 0.01);
 }
 .Subject{
     font-size: 40px;
