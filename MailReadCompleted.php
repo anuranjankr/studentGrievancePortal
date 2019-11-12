@@ -15,7 +15,7 @@ else{
 mysqli_select_db($con, 'sgp');
 
 
-  $sql1 = "select subject,complain_number,description from solved_complain where complain_number =  ".$_POST['s_num']."; ";
+  $sql1 = "select * from solved_complain where complain_number =  ".$_POST['s_num']."; ";
   $result1 = $con->query($sql1);
 
 ?>
@@ -34,9 +34,9 @@ mysqli_select_db($con, 'sgp');
   var subject = "<?php while($row=mysqli_fetch_array($result1)) echo $row['subject']; $result1->data_seek(0); ?>";
   var sender = "<?php while($row=mysqli_fetch_array($result1)) echo $row['complain_number']; $result1->data_seek(0); ?>";
   var description = `<?php while($row=mysqli_fetch_array($result1)) echo nl2br($row['description']); ?>`;
-  $('.email-body').append('<div class="Username"> '+usrname+'</div>');
-  $('.email-body').append('<div class="Subject"> '+subject+'</div>');
-  $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
+  $('.email-body').append('<div class="Username"> ' + '<b>From</b> : &lt ' + usrname + ' &gt' + '</div>');
+  $('.email-body').append('<div class="Subject"> '+'<b>Subject</b> : '+subject+'</div>');
+  $('.email-body').append('<div class="Information-Mail"> '+'<b>Complain No.<b> : '+sender+'</div>');
   $('.email-body').append('<div class ="mail-page">'+description+'</div>');
 
 

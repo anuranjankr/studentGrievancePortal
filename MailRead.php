@@ -36,10 +36,10 @@ $result = $con->query($sql);
     var filename = "<?php while($row=mysqli_fetch_array($result)) echo $row['uploaded_filename']; $result->data_seek(0); ?>";
     var description = `<?php while($row=mysqli_fetch_array($result)) echo nl2br($row['description']); ?>`;
 
-  $('.email-body').append('<div class="Username"> '+usrname+'</div>');
-  $('.email-body').append('<div class="Subject"> '+subject+'</div>');
-  $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
-  $('.email-body').append('<div class ="mail-page">'+description+'</div>');
+    $('.email-body').append('<div class="Username"> ' + '<b>From</b> : &lt ' + usrname + ' &gt' + '</div>');
+    $('.email-body').append('<div class="Subject"> '+'<b>Subject</b> : '+subject+'</div>');
+    $('.email-body').append('<div class="Information-Mail"> '+'<b>Complain No.<b> : '+sender+'</div>');
+    $('.email-body').append('<div class ="mail-page">'+description+'</div>');
   if(filename != 'none')
     $('.email-body').append('<a href="upload/'+filename+'" download > Download Attachment </a> ');
   });

@@ -72,7 +72,7 @@ a:hover {
 #EmailList{
       visibility: visible;
       width:inherit;
-      height:500px;
+      height:650px;
       margin: 0;
       overflow:scroll;
 }
@@ -130,7 +130,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.01);
 }
 .Subject{
-    font-size: 40px;
+    font-size: 30px;
     padding:15px;
     border-bottom: 3px rgba(0, 0, 0, 0.1) solid;
     background-color: rgba(0, 0, 0, 0.01);
