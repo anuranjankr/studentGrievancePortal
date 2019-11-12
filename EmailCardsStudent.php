@@ -75,7 +75,7 @@ $result = $con->query($sql);
             var res_id=myClass.substr(4);
             var pass2 = '.'+'mail-title'+res_id;
             var val = parseInt($(pass2).text());
-            $(".EmailList").load("MailReadStudent.php", {c_num: val});
+            $(".EmailList").load("MailReadStudent.php", {c_num: val, uName:"<?php echo $_POST['uName']?>"});
         });
       }
   });

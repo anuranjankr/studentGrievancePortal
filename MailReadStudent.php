@@ -59,7 +59,7 @@ $("#PDFDownload").click(function () {
   <div class="email-body" id="PDFcontentStudent">
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
-  <div class ="approve" id="myBtn">Raise Dispute</div>
+  <div class ="approve" id="myBtn" onclick="location.href='raiseDispute.php?c_num=<?php echo $_POST['c_num']; ?>&uName=<?php echo $_POST['uName']; ?>'">Raise Dispute</div>
   <div class ="download" id="PDFDownload">Save As PDF</div>
   </body>
 </html>

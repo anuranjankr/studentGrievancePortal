@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 
 session_start();
-$adName=$_GET['uName'];
+$uName=$_GET['uName'];
 $c_num=$_GET['c_num'];
 //echo $_SESSION['user'];
 $servername = "localhost";
@@ -21,14 +21,20 @@ else{
 }
 mysqli_select_db($con, 'sgp');
 
-$sql_lvl_up="UPDATE complaint_box SET level=(SELECT level FROM complaint_box WHERE complain_number='$c_num')-1 WHERE complain_number='$c_num';";
-$result_lvl_up=$con->query($sql_lvl_up);
-
 $sql_lvl_adm="SELECT solved_by FROM complaint_box WHERE complain_number='$c_num'; ";
 $result_lvl_adm=$con->query($sql_lvl_adm);
 
-$sql_lvl_adm_up="SELECT id FROM admin_details WHERE category=(SELECT category FROM admin_details WHERE id='$adName') && level=(SELECT level FROM admin_details WHERE id='$adName')-1;";
-$result_lvl_adm_up=$con->query($sql_lvl_adm);
+$adm_lvl ='';
+while($row=mysqli_fetch_array($result_lvl_adm)){
+  $adm_lvl = $row['solved_by'];
+}
+
+
+$sql_lvl_adm_up="SELECT id FROM admin_details WHERE (category=(SELECT category FROM admin_details WHERE id='$adm_lvl') && level=(SELECT level FROM admin_details WHERE id='$adm_lvl')-1)||(category='all' && ((SELECT level FROM admin_details WHERE id='$adm_lvl')-1)=0)";
+$result_lvl_adm_up=$con->query($sql_lvl_adm_up);
+$adm_up ='';
+while($row=mysqli_fetch_array($result_lvl_adm_up)){
+  $adm_up = $row['id'];
 
 
 $sql = "select * from solved_complain where complain_number = '$c_num'; ";
@@ -43,18 +49,10 @@ while($row=mysqli_fetch_array($result))
 $result->data_seek(0);
 
 while($row=mysqli_fetch_array($result))
- $remark = $row['Remarks'];
+ $remarks = $row['Remarks'];
 $result->data_seek(0);
 
 
-$adm_lvl ='';
-while($row=mysqli_fetch_array($result_lvl_adm_up)){
-  $adm_lvl = $row['solved_by'];
-
-
-$adm_up ='';
-while($row=mysqli_fetch_array($result_lvl_adm_up)){
-  $adm_up = $row['id'];
 
   require 'PHPMailer/vendor/autoload.php';
 
@@ -71,7 +69,8 @@ while($row=mysqli_fetch_array($result_lvl_adm_up)){
   $mail->Password = "99914090";
   $mail->setFrom('pritampal99@gmail.com', 'Pritam Pal');
   $mail->addAddress($adm_up);
-  $mail->AddCC($adm_lvl);
+  $mail->addAddress($adm_lvl);
+  $mail->AddCC($uName);
   $mail->Subject = "[FWD: ".$subject." ]";
   $mail->Body = "A Dispute was raised by :".$uName." on "."<b><u>Complain No. : </u></b>".$c_num."<br>"."<b><u>Description </u><b>"."<br>".$description."<br>"."<b><u>Remark by </u><b>".$adm_lvl."<br>".$remarks;
   if(!$mail->send()) {
@@ -80,9 +79,13 @@ while($row=mysqli_fetch_array($result_lvl_adm_up)){
      exit;
    }
 
+
+ $sql_lvl_query="UPDATE complaint_box SET level=(SELECT level FROM complaint_box WHERE complain_number='$c_num')-1 WHERE complain_number='$c_num';";
+ $result_lvl_query=$con->query($sql_lvl_query);
+
+
    $_SESSION['user']=$uName;
    header('location:studentStartUpPage.php');
-
 
 }
 
