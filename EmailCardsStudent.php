@@ -46,8 +46,9 @@ $result = $con->query($sql);
       {
         var pass1 = '.'+i;
         var IsComplete = 1;
+        var disp = 'dot'+i;
         if(IsComplete){
-          document.getElementsByClassName("dot")[i-1].style.color = 'rgba(0,255,0,0.75)';
+          document.getElementById(disp).style.color = 'rgba(0,255,0,0.75)';
         }
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
@@ -88,7 +89,7 @@ $result = $con->query($sql);
       //  echo $row['complain_number']." ";
       //  echo $row['subject'];
       //  echo "<br>";
-        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="dot"></span><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="dot" id="dot'.$k.'"></span><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
         $k++;
       }
     }
