@@ -16,7 +16,7 @@
 .row {
   display: -webkit-flex;
   display: flex;
-  min-height: 75vh;
+  height: 750px;
   max-width:100%;
   margin:0px auto;
 }

@@ -14,9 +14,9 @@ else{
 mysqli_select_db($con, 'sgp');
 
 
-$sql = "select complain_number,subject from complaint_box where user_id = '".$_POST['uName']."'; ";
-
+$sql = "select * from complaint_box where user_id = '".$_POST['uName']."'; ";
 $result = $con->query($sql);
+
 ?>
 
 <html>
@@ -45,11 +45,6 @@ $result = $con->query($sql);
       for(i=1;i<=pageLimit;i++)
       {
         var pass1 = '.'+i;
-        var IsComplete = 1;
-        var disp = 'dot'+i;
-        if(IsComplete){
-          document.getElementById(disp).style.background = 'rgba(0,255,0,0.75)';
-        }
         $(pass1).click(function(e) {
             var myClass = $(this).attr("class");
             var closePass1 = '.'+'card'+myClass;
@@ -90,6 +85,15 @@ $result = $con->query($sql);
       //  echo $row['subject'];
       //  echo "<br>";
         echo '<div id="myCard" class="card'.$k.'"><div class="card-content"><span class="dot" id="dot'.$k.'"></span><span class="card-hyperlink'.$k.'" id="hrefing"><span class="mail-title'.$k.'"><b>'.$row['complain_number'].'</b></span><span class="mail-description"><b>'.$row['subject'].'</b></span></span><button type= "button" id = "closed" class="'.$k.'"></button></div></div>';
+        ?>
+        <script>
+        var IsComplete = "<?php echo $row['solved_by'];?>";
+        var disp = 'dot'+<?php echo $k;?>;
+        if(IsComplete != "NONE"){
+          document.getElementById(disp).style.background = 'rgba(0,255,0,0.75)';
+        }
+        </script>
+        <?php
         $k++;
       }
     }

@@ -15,9 +15,12 @@ else{
 mysqli_select_db($con, 'sgp');
 
 //echo $_POST['c_num'];
-$sql = "select subject,complain_number,description from complaint_box where complain_number =  ".$_POST['c_num']."; ";
-
+$sql = "select * from complaint_box where complain_number =  ".$_POST['c_num']."; ";
 $result = $con->query($sql);
+
+$sql1 = "select * from solved_complain where complain_number =  ".$_POST['c_num']."; ";
+$result1 = $con->query($sql1);
+
 ?>
 
 <html>
@@ -30,11 +33,21 @@ $result = $con->query($sql);
   $(document).ready(function() {
   var subject = "<?php while($row=mysqli_fetch_array($result)) echo $row['subject']; $result->data_seek(0); ?>";
   var sender = "<?php while($row=mysqli_fetch_array($result)) echo $row['complain_number']; $result->data_seek(0); ?>";
-  var description = `<?php while($row=mysqli_fetch_array($result)) echo nl2br($row['description']); ?>`;
-  //var descrp=description.replace(/(\r\n|\n|\r)/gm,"<br>");
-  $('.email-body').append('<div class="Subject"> '+subject+'</div>');
-  $('.email-body').append('<div class="Information-Mail"> '+sender+'</div>');
-  $('.email-body').append('<div class ="mail-page">'+description+'</div>');
+  var description = `<?php while($row=mysqli_fetch_array($result)) echo nl2br($row['description']); $result->data_seek(0);?>`;
+  var remark = `<?php while($row=mysqli_fetch_array($result1)) echo nl2br($row['Remarks']); $result1->data_seek(0);?>`;
+  var solved_by = "<?php while($row=mysqli_fetch_array($result)) echo $row['solved_by']; $result->data_seek(0); ?>";
+
+  $('.email-body').append('<div class="Subject"> '+'<b>Subject</b> : '+subject+'</div>');
+  $('.email-body').append('<div class="Information-Mail"> '+'<b>Complain No.<b> : '+sender+'</div>');
+  $('.email-body').append('<div class ="mail-page">'+description);
+  <?php
+  $isDisplay='';
+  while($row=mysqli_fetch_array($result)){
+      $isDisplay = $row['solved_by'];
+    }
+  if($isDisplay != "NONE"){?>
+  $('.email-body').append('Remarks : '+remark+'<br><b>Solved By : </b>'+solved_by+'</div>');
+  <?php }?>
 });
 </script>
 
@@ -60,8 +73,14 @@ $("#PDFDownload").click(function () {
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
   <?php
-  $isDisplay = 0;
-  if($isDisplay){ ?>
+  $isDisplay='';
+  $lvl_disp=-99;
+  $result->data_seek(0);
+  while($row=mysqli_fetch_array($result)){
+      $lvl_disp=$row['level'];
+      $isDisplay = $row['solved_by'];
+    }
+  if($isDisplay != "NONE" && $lvl_disp > 0){ ?>
   <div class ="approve" id="myBtn" onclick="location.href='raiseDispute.php?c_num=<?php echo $_POST["c_num"]; ?>&uName=<?php echo $_POST["uName"]; ?>'">Raise Dispute</div>
   <?php }
   ?>

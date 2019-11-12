@@ -330,7 +330,7 @@
      </div>
 
     </div>
-    <div class="tab" style="height:80% ;">
+    <div class="tab" style="height:inherit;">
 
 
     <div class="container">
