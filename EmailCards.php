@@ -10,7 +10,7 @@ if ($con->connect_error) {
 else{
 }
 mysqli_select_db($con, 'sgp');
-$sql = "select complain_number,subject from complaint_box,admin_details where admin_details.id = '".$_POST['uName']."' && complaint_box.category = admin_details.category && complaint_box.level >= admin_details.level && solved_by='NONE'; ";
+$sql = "select * from complaint_box,admin_details where (admin_details.id = '".$_POST['uName']."' && complaint_box.category = admin_details.category && complaint_box.level >= admin_details.level && solved_by='NONE')||(admin_details.id='".$_POST['uName']."' && admin_details.category='all' && complaint_box.level >=0 && solved_by='NONE') ";
 $result = $con->query($sql);
 ?>
 

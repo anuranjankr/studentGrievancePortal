@@ -47,10 +47,11 @@ $par_c_num_date= str_replace("-","",$par_c_num_date);
 $complain_num=(int)($par_c_num_date.$par_c_num);
 
 
-
+$filename='none';
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     //function uploading_file(){
       // Check if file was uploaded without errors
+    //$filename='';
     if(isset($_POST['agree1'])){
     if(isset($_FILES["fileToUpload"]) && $_FILES["fileToUpload"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -80,17 +81,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         } else{
             echo "Error: There was a problem uploading your file. Please try again.";
-            $filename="none";
         }
     } else{
         echo "Error: " . $_FILES["fileToUpload"]["error"];
     }
-
   }else{
-    $filename="none";
+    $filename='none';
   }
 }
-
 $subject=$_POST['subject'];
 $category=$_POST['category'];
 $description=$_POST['description'];

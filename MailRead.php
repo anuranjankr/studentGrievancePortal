@@ -93,8 +93,16 @@ $("#PDFDownload").click(function () {
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
   <div class ="approve" id="myBtn">Approve</div>
+  <?php
+  $lvl_disp=-99;
+  $result->data_seek(0);
+  while($row=mysqli_fetch_array($result)){
+      $lvl_disp=$row['level'];
+    }
+  if($lvl_disp > 0){ ?>
   <div class ="approve" id="myBtn2" onclick="location.href='forward_category.php?c_num=<?php echo $_POST['c_num']; ?>&adName=<?php echo $_POST['adName']; ?>'">Forward</div>
-
+  <?php }
+  ?>
   <div class ="download" id="PDFDownload">Save As PDF</div>
   <div id="editor"></div>
   <div id="myModal" class="modal">
