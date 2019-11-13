@@ -245,10 +245,11 @@ a:hover {
 .Complain{
   display:none;
   padding:5px;
-  margin-left:40%;
+  margin-left:38%;
 /*  display:inline-block;*/
 }
 .Suggestion{
+  margin-left:10px;
   display:none;
   padding:5px;
   /*display:inline-block;*/

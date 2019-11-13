@@ -14,7 +14,7 @@ else{
 mysqli_select_db($con, 'sgp');
 
 
-$sql = "select * from complaint_box where user_id = '".$_POST['uName']."'; ";
+$sql = "select * from complaint_box where user_id = '".$_POST['uName']."' && inbox_read=1; ";
 $result = $con->query($sql);
 
 ?>
@@ -35,11 +35,6 @@ $result = $con->query($sql);
     var i;
 
     $(document).ready(function() {
-/*  for(i = 1; i <= pageLimit; i++) {
-        var subject="<?php  //echo $result[i-1]; ?>";
-        var complain_number="<?php //echo $result[i-1]; ?>";
-        $(".EmailList").append('<div id="myCard" class="card'+i+'"><div class="card-content"><input type="checkbox" id="Checkbox'+i+'" /><span class="card-hyperlink'+i+'" id="hrefing"><span class="mail-title"><b>'+complain_number+'</b></span><span class="mail-description"><b>'+subject+'</b></span></span><button type= "button" id = "closed" class="'+ i +'"></button></div></div>');
-      }*/
       var passNoDelete = -1;
       var clickedCardNo;
       for(i=1;i<=pageLimit;i++)
@@ -50,11 +45,10 @@ $result = $con->query($sql);
             var closePass1 = '.'+'card'+myClass;
             if(confirm("Want to delete?"))
               {
-                $(closePass1).remove();
-                emailsLeft--;
-                if(emailsLeft == 0){
-                  $('.EmailList').append('<h1 class="no_mails"><center> No mails for you </center><h1>');
-                }
+              //  var res_id=myClass.substr(4);
+                var pass2 = '.'+'mail-title'+myClass;
+                var val = parseInt($(pass2).text());
+                location.href="closeCardStudent.php?c_num="+val+"&uName=<?php echo $_POST['uName']; ?>";
               }
               else {
                 e.stopPropagation();
