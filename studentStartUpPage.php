@@ -324,7 +324,7 @@
       </script>
       <button type= "button" id ="go-back" class="back"></button><div class="Complain" id="enable">Complain</div><div class="Suggestion" id="disable">Suggestion</div>
       <div class="search-container">
-        <form action="/reset_pass_user.php">
+        <form action="resetPassUser.php?uName=<?php echo $usrName; ?>" method="post">
           <button type="submit"><span>Reset Password</span></button>
         </form>
      </div>
@@ -438,10 +438,9 @@
 
 
 </div>
-
-<div class="footer">
-  <p>Copyright(c) Indian Institute of Information Technology Bhagalpur</p>
-</div>
+<div class="footer-box">
+              Copyright &copy Indian Institute of Information Technology Bhagalpur
+    </div>
 
 
 </body>

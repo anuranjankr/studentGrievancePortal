@@ -1,3 +1,51 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+$servername = "localhost";
+$username = "root";//username
+$password = ""; //password
+
+$con = mysqli_connect($servername, $username, $password);
+
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+else{
+}
+mysqli_select_db($con, 'sgp');
+
+$usrName = $_GET['adName'];
+$OTP = rand(1001,9999);
+
+require 'PHPMailer/vendor/autoload.php';
+
+$mail = new PHPMailer();
+
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'tls';
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 587;
+$mail->isHTML(true);
+$mail->Username = "pritampal99@gmail.com";
+$mail->Password = "99914090";
+$mail->setFrom('pritampal99@gmail.com', 'Pritam Pal');
+$mail->addAddress($usrName);
+$mail->Subject = "Student Grievance Portal : ONE TIME PASSWORD";
+$mail->Body = "YOUR OTP : $OTP <br> DON'T SHARE THIS TO ANYONE.";
+if(!$mail->send()) {
+   echo 'Message could not be sent.';
+   echo 'Mailer Error: ' . $mail->ErrorInfo;
+   exit;
+ }
+ $sql_OTP = "UPDATE admin_details SET otp = $OTP WHERE id = '$usrName'";
+ $result_OTP = $con->query($sql_OTP);
+echo "<script>alert('AN OTP HAS BEEN SENT TO YOUR EMAIL ADDRESS');</script>";
+?>
+
 <!doctype html>
 
 <html lang="en">
@@ -45,7 +93,7 @@
 
   <div class="form-box">
 
-    <form id="user" class="input-group">
+    <form id="user" class="input-group" action="changePasswordAdmin.php?adName=<?php echo $usrName;?>" method="post">
     <div class="head-box" style="margin-top:-50px;">
       <label style="font-size:25px; display:inline-block;">Change Your Password</label>
     </div>
@@ -55,6 +103,20 @@
     <input type="text" name="cnfPass" class="input-field" placeholder="Confirm Password" id="cnf_pass"required>
     <button type="submit" class="submit-btn">Change Password</button>
     </form>
+    <script>
+    $(document).ready(function() {
+    $('.submit-btn').click(function(e){
+      var pass = document.getElementById("new_pass").value;
+      var cnf = document.getElementById("cnf_pass").value;
+      var OTP = document.getElementById("o_t_p").value;
+        if (!(pass == cnf &&  OTP == <?php echo $OTP;?>)){
+          alert("Enter Correct Details..");
+              e.preventDefault();
+              return false;
+        }
+      });
+      });
+    </script>
 
   </div>
 

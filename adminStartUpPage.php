@@ -155,7 +155,7 @@
 
       <button type= "button" id ="go-back" class="back"></button><label for="category" style="padding-left:10px;"></label>
       <div class="search-container">
-        <form action="/reset_pass_user.php">
+        <form action="resetPassAdmin.php?adName=<?php echo $adminName; ?>" method="post">
           <button type="submit"><span>Reset Password</span></button>
         </form>
      </div>
@@ -195,7 +195,9 @@
 <div class="footer-box">
   <p>Copyright(c) Indian Institute of Information Technology Bhagalpur</p>
 </div>
-
+<div class="footer-box">
+              Copyright &copy Indian Institute of Information Technology Bhagalpur
+    </div>
 
 </body>
 </html>

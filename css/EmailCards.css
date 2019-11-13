@@ -270,3 +270,13 @@ a:hover {
   background-color: #0c300c !important;
   cursor:pointer;
 }
+
+.footer-box {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
