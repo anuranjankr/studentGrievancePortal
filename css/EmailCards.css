@@ -144,7 +144,7 @@ a:hover {
     font-size: 15px;
     padding:15px;
     width:inherit;
-    height:300px;
+    min-height:200px;
 }
  .approve{
     background-color: #29a329;
