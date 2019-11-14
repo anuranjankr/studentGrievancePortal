@@ -41,7 +41,7 @@ $result = $con->query($sql);
     $('.email-body').append('<div class="Information-Mail"> '+'<b>Complain No.<b> : '+sender+'</div>');
     $('.email-body').append('<div class ="mail-page">'+description+'</div>');
   if(filename != 'none')
-    $('.email-body').append('<a href="upload/'+filename+'" download > Download Attachment </a> ');
+    $('.email-body').append('<a href="upload/'+filename+'" style="background:rgba(0,255,0,0.7); padding: 3px; border-radius:2px; width:80px;height:40px;" download > Download Attachment </a> ');
   });
 </script>
 <script>
@@ -92,6 +92,7 @@ $("#PDFDownload").click(function () {
   <div class="email-body" id="PDFcontent">
     <link rel = "stylesheet" href ="css/EmailCards.css">
   </div>
+  <br>
   <div class ="approve" id="myBtn">Approve</div>
   <?php
   $lvl_disp=-99;

@@ -193,9 +193,6 @@
 </div>
 
 <div class="footer-box">
-  <p>Copyright(c) Indian Institute of Information Technology Bhagalpur</p>
-</div>
-<div class="footer-box">
               Copyright &copy Indian Institute of Information Technology Bhagalpur
     </div>
 
