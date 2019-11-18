@@ -16,8 +16,16 @@ mysqli_select_db($con, 'sgp');
 
 //echo $_POST['c_num'];
 $sql = "select * from complaint_box where complain_number =  ".$_POST['c_num']."; ";
-
 $result = $con->query($sql);
+
+$lvl_adm=-99;
+$admName_lc=$_POST['adName'];
+$sql_lvl_adm="SELECT level FROM admin_details WHERE id='$admName_lc' ; ";
+$result_lvl_adm=$con->query($sql_lvl_adm);
+while($row=mysqli_fetch_array($result_lvl_adm)){
+    $lvl_adm=$row['level'];
+}
+
 ?>
 
 
@@ -100,7 +108,7 @@ $("#PDFDownload").click(function () {
   while($row=mysqli_fetch_array($result)){
       $lvl_disp=$row['level'];
     }
-  if($lvl_disp > 0){ ?>
+  if($lvl_disp == $lvl_adm && $lvl_adm != 0){ ?>
   <div class ="approve" id="myBtn2" onclick="location.href='forward_category.php?c_num=<?php echo $_POST['c_num']; ?>&adName=<?php echo $_POST['adName']; ?>'">Forward</div>
   <?php }
   ?>

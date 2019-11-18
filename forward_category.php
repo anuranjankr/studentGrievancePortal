@@ -28,8 +28,8 @@ $sql_lvl_adm="SELECT id FROM admin_details WHERE category=(SELECT category FROM 
 $result_lvl_adm=$con->query($sql_lvl_adm);
 
 $sql = "select * from complaint_box where complain_number = '$c_num'; ";
-
 $result = $con->query($sql);
+
 while($row=mysqli_fetch_array($result))
  $subject = $row['subject'];
 $result->data_seek(0);
@@ -38,9 +38,21 @@ while($row=mysqli_fetch_array($result))
  $description = $row['description'];
 $result->data_seek(0);
 
+$usrId ='';
+while($row=mysqli_fetch_array($result))
+  $usrId = $row['user_id'];
+$result->data_seek(0);
+
+$fileName ='NONE';
+while($row=mysqli_fetch_array($result))
+  $fileName = $row['uploaded_filename'];
+
+
+
 $adm_up ='';
 while($row=mysqli_fetch_array($result_lvl_adm)){
   $adm_up = $row['id'];
+
 
   require 'PHPMailer/vendor/autoload.php';
 
@@ -57,9 +69,12 @@ while($row=mysqli_fetch_array($result_lvl_adm)){
   $mail->Password = "99914090";
   $mail->setFrom('pritampal99@gmail.com', 'Pritam Pal');
   $mail->addAddress($adm_up);
-  $mail->AddCC($adName);
+  $mail->addAddress($adName);
+  $mail->AddCC($usrId);
   $mail->Subject = "[FWD: ".$subject." ]";
   $mail->Body = "The following complain was forwarded by :".$adName."<br>"."<b><u>Complain No. : </u></b>".$c_num."<br>"."<b><u>Description </u><b>"."<br>".$description;
+  if($fileName != 'NONE')
+    $mail->addAttachment("upload/".$fileName);
   if(!$mail->send()) {
      echo 'Message could not be sent.';
      echo 'Mailer Error: ' . $mail->ErrorInfo;
