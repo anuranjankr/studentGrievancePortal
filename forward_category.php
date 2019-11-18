@@ -24,7 +24,7 @@ mysqli_select_db($con, 'sgp');
 $sql_lvl_up="UPDATE complaint_box SET level=(SELECT level FROM complaint_box WHERE complain_number='$c_num')-1 WHERE complain_number='$c_num';";
 $result_lvl_up=$con->query($sql_lvl_up);
 
-$sql_lvl_adm="SELECT id FROM admin_details WHERE category=(SELECT category FROM admin_details WHERE id='$adName') && level=(SELECT level FROM admin_details WHERE id='$adName')-1;";
+$sql_lvl_adm="SELECT id FROM admin_details WHERE (category=(SELECT category FROM admin_details WHERE id='$adName') && level=(SELECT level FROM admin_details WHERE id='$adName')-1) || (category='all' && level=(SELECT level FROM admin_details WHERE id='$adName')-1);";
 $result_lvl_adm=$con->query($sql_lvl_adm);
 
 $sql = "select * from complaint_box where complain_number = '$c_num'; ";
@@ -60,7 +60,6 @@ while($row=mysqli_fetch_array($result_lvl_adm)){
 
   $mail->isSMTP();
   $mail->SMTPAuth = true;
-  $mail->SMTPDebug = 1;
   $mail->SMTPSecure = 'tls';
   $mail->Host = "smtp.gmail.com";
   $mail->Port = 587;
